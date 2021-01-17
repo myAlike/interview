@@ -1,0 +1,55 @@
+73、字节流与字符流的区别
+ 要把一片二进制数据数据逐一输出到某个设备中，或者从某个设备中逐一读取一片
+二进制数据，不管输入输出设备是什么，我们要用统一的方式来完成这些操作，用一种抽象
+的方式进行描述，这个抽象描述方式起名为 IO 流，对应的抽象类为 OutputStream 和
+InputStream，不同的实现类就代表不同的输入和输出设备，它们都是针对字节进行操作的。
+ 在应用中，经常要完全是字符的一段文本输出去或读进来，用字节流可以吗？计算
+机中的一切最终都是二进制的字节形式存在。对于“中国”这些字符，首先要得到其对应的字节，然后将字节写入到输出流。读取时，首先读到的是字节，可是我们要把它显示为字符，
+我们需要将字节转换成字符。由于这样的需求很广泛，人家专门提供了字符流的包装类。
+ 底层设备永远只接受字节数据，有时候要写字符串到底层设备，需要将字符串转成字节再
+进行写入。字符流是字节流的包装，字符流则是直接接受字符串，它内部将串转成字节，
+再写入底层设备，这为我们向 IO 设别写入或读取字符串提供了一点点方便。
+ 字符向字节转换时，要注意编码的问题，因为字符串转成字节数组，
+ 其实是转成该字符的某种编码的字节形式，读取也是反之的道理。
+
+讲解字节流与字符流关系的代码案例：
+import java.io.BufferedReader;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.InputStreamReader;
+import java.io.PrintWriter;
+
+public class IOTest {
+	public static void main(String[] args) throws Exception {
+		String str = "中国人";
+		/*
+		 * FileOutputStreamfos = newFileOutputStream("1.txt");
+		 *
+		 * fos.write(str.getBytes("UTF-8")); fos.close();
+		 */
+
+		/*
+		 * FileWriter fw =new FileWriter("1.txt"); fw.write(str); fw.close();
+		 */
+		PrintWriter pw = new PrintWriter("1.txt", "utf-8");
+		pw.write(str);
+		pw.close();
+
+		/*
+		 * FileReader fr =new FileReader("1.txt"); char[] buf = newchar[1024];
+		 * int len =fr.read(buf); String myStr = newString(buf,0,len);
+		 * System.out.println(myStr);
+		 */
+		/*
+		 * FileInputStreamfr = new FileInputStream("1.txt"); byte[] buf =
+		 * newbyte[1024]; int len =fr.read(buf); String myStr =
+		 * newString(buf,0,len,"UTF-8"); System.out.println(myStr);
+		 */
+		BufferedReader br = new BufferedReader(new InputStreamReader(new FileInputStream("1.txt"), "UTF-8"));
+		String myStr = br.readLine();
+		br.close();
+		System.out.println(myStr);
+	}
+}

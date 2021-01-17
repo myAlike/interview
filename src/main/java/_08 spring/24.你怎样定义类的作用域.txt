@@ -1,0 +1,4 @@
+24.你怎样定义类的作用域?
+当定义一个<bean>在 Spring 里，我们还能给这个 bean 声明一个作用域。它可以通过 bean 定义中的 scope 属性来定义。
+如，当 Spring 要在需要的时候每次生产一个新的 bean 实例， bean 的 scope 属性被指定为 prototype。
+另一方面，一个 bean 每次使用的时候必须返回同 一个实例，这个 bean 的 scope 属性必须设为 singleton。

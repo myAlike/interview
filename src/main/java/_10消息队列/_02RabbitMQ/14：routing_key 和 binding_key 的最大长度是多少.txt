@@ -1,0 +1,2 @@
+14：routing_key 和 binding_key 的最大长度是多少？
+答：255  字节。

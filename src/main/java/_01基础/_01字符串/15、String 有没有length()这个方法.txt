@@ -1,0 +1,2 @@
+36、数组有没有 length()这个方法? String 有没有 length()这个方法？
+数组没有 length()这个方法，有 length 的属性。String 有有 length()这个方法。

@@ -1,0 +1,36 @@
+11.统计每年每月的信息
+year month amount
+1991 1 1.1
+1991 2 1.2
+1991 3 1.3
+1991 4 1.4
+1992 1 2.1
+1992 2 2.2
+1992 3 2.3
+1992 4 2.4
+查成这样一个结果
+year m1 m2 m3 m4
+1991 1.1 1.2 1.3 1.4
+1992 2.1 2.2 2.3 2.4
+提示：这个与工资条非常类似，与学生的科目成绩也很相似。
+
+准备 sql 语句：
+drop table if existssales;
+create table sales(id int auto_increment primary key,year varchar(10), month varchar(10),
+amount float(2,1));
+insert into sales values
+(null,'1991','1',1.1),
+(null,'1991','2',1.2),
+(null,'1991','3',1.3),
+(null,'1991','4',1.4),
+(null,'1992','1',2.1),
+(null,'1992','2',2.2),
+(null,'1992','3',2.3),
+(null,'1992','4',2.4);
+答案一、
+select sales.year ,
+(select t.amount from sales t where t.month='1' and t.year= sales.year) '1',
+(select t.amount from sales t where t.month='2' and t.year= sales.year) '2',
+(select t.amount from sales t where t.month='3' and t.year= sales.year) '3',
+(select t.amount from sales t where t.month='4' and t.year= sales.year) as '4'
+from sales group by year;

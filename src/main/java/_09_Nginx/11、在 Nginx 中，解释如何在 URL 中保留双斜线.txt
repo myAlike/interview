@@ -1,0 +1,4 @@
+11、在 Nginx 中，解释如何在 URL 中保留双斜线?
+
+要在 URL 中保留双斜线，就必须使用 merge_slashes_off; 语法:merge_slashes [on/off]
+默认值: merge_slashes on 环境: http，server

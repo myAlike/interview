@@ -1,0 +1,41 @@
+22、用 JDBC 如何调用存储过程
+代码如下：
+publicclass JdbcTest {
+
+ /**
+ * @paramargs
+ */
+ public static void main(String[] args) {
+ Connection cn = null;
+ CallableStatement cstmt =null;
+ try {
+ //这里最好不要这么干，因为驱动名写死在程序中了
+ Class.forName("com.mysql.jdbc.Driver");
+ //实际项目中，这里应用 DataSource 数据，如果用框架，
+ //这个数据源不需要我们编码创建，我们只需 Datasource ds =context.lookup()
+ //cn = ds.getConnection();
+ cn = DriverManager.getConnection("jdbc:mysql:///test","root","root");
+ cstmt = cn.prepareCall("{callinsert_Student(?,?,?)}");
+ cstmt.registerOutParameter(3,Types.INTEGER);
+ cstmt.setString(1,"wangwu");
+ cstmt.setInt(2, 25);
+ cstmt.execute();
+ //get 第几个，不同的数据库不一样，建议不写
+ System.out.println(cstmt.getString(3));
+ } catch (Exception e) {
+ // TODO Auto-generated catchblock
+ e.printStackTrace();
+ }
+ finally
+ {
+
+ try {
+ if(cstmt !=null)
+ cstmt.close();
+ if(cn !=null)
+ cn.close();
+ } catch (SQLException e) {
+ e.printStackTrace();
+ }
+ }
+ }

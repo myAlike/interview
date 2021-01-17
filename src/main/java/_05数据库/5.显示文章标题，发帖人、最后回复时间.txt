@@ -1,0 +1,21 @@
+5.显示文章标题，发帖人、最后回复时间
+表：id,title,postuser,postdate,parentid
+准备sql语句：
+drop table if exists articles;
+create table articles(id int auto_increment primary key,title varchar(50), postuser varchar(10), postdate datetime,parentid int references articles(id));
+insert into articles values
+(null,'第一条','张三','1998-10-10 12:32:32',null),
+(null,'第二条','张三','1998-10-10 12:34:32',null),
+(null,'第一条回复1','李四','1998-10-10 12:35:32',1),
+(null,'第二条回复1','李四','1998-10-10 12:36:32',2),
+(null,'第一条回复2','王五','1998-10-10 12:37:32',1),
+(null,'第一条回复3','李四','1998-10-10 12:38:32',1),
+(null,'第二条回复2','李四','1998-10-10 12:39:32',2),
+(null,'第一条回复4','王五','1998-10-10 12:39:40',1);
+
+答案：
+select a.title,a.postuser,
+	(select max(postdate) from articles where parentid=a.id) reply
+from articles a where a.parentid is null;
+
+注释：子查询可以用在选择列中，也可用于where的比较条件中，还可以用于from从句中。

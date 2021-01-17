@@ -1,0 +1,8 @@
+13)在 Java 中 CycliBarriar 和 CountdownLatch 有什么区别？
+
+这个线程问题主要用来检测你是否熟悉 JDK5 中的并发包。这两个的区别是 CyclicBarrier 可以 重复使用已经通过的障碍，而 CountdownLatch 不能重复使用。
+
+两个看上去有点像的类，都在 java.util.concurrent 下，都可以用来表示代 码运行到某个点上，二者的区别在于：
+1）CyclicBarrier 的某个线程运行到某个点上之后，该线程即停止运行，直到 所有的线程都到达了这个点，所有线程才重新运行； CountDownLatch 则不 是，某线程运行到某个点上之后，只是给某个数值 -1 而已，该线程继续运行。 2）CyclicBarrier 只能唤起一个任务，CountDownLatch 可以唤起多个任务。
+3) CyclicBarrier 可重用， CountDownLatch 不可重用， 计数值为 0  该
+CountDownLatch 就不可再用了。

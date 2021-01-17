@@ -1,0 +1,40 @@
+16、求出小于45岁的各个老师所带的大于12岁的学生人数
+ 数据库中有3个表 teacher 表，student表，tea_stu关系表。
+ teacher 表 teaID name age
+ student 表 stuID name age
+ teacher_student表 teaID stuID
+ 要求用一条sql查询出这样的结果
+ 1.显示的字段要有老师name, age 每个老师所带的学生人数
+ 2 只列出老师age为40以下，学生age为12以上的记录
+ 预备知识：
+       1.sql语句是对每一条记录依次处理，条件为真则执行动作（select,insert,delete,update）
+        2.只要是迪卡尔积，就会产生“垃圾”信息，所以，只要迪卡尔积了，我们首先就要想到清除“垃圾”信息
+ 实验准备：
+ 	drop table if exists tea_stu;
+ 	drop table if exists teacher;
+ 	drop table if exists student;
+       create table teacher(teaID int primary key,name varchar(50),age int);
+       create table student(stuID int primary key,name varchar(50),age int);
+       create table tea_stu(teaID int references teacher(teaID),stuID int references student(stuID));
+ insert into teacher values(1,'zxx',45), (2,'lhm',25) , (3,'wzg',26) , (4,'tg',27);
+ insert into student values(1,'wy',11), (2,'dh',25) , (3,'ysq',26) , (4,'mxc',27);
+ insert into tea_stu values(1,1), (1,2), (1,3);
+ insert into tea_stu values(2,2), (2,3), (2,4);
+  insert into tea_stu values(3,3), (3,4), (3,1);
+ insert into tea_stu values(4,4), (4,1), (4,2) , (4,3);
+
+ 结果：23,32,43
+
+ 解题思路：（真实面试答题时，也要写出每个分析步骤，如果纸张不够，就找别人要）
+ 1要会统计分组信息，统计信息放在中间表中：
+ select teaid,count(*) from tea_stu group by teaid;
+
+ 2接着其实应该是筛除掉小于12岁的学生，然后再进行统计，中间表必须与student关联才能得到12岁以下学生和把该学生记录从中间表中剔除，代码是：
+ select tea_stu.teaid,count(*) total from student,tea_stu
+ where student.stuid=tea_stu.stuid and student.age>12 group by tea_stu.teaid
+
+ 3.接着把上面的结果做成虚表与teacher进行关联，并筛除大于45的老师
+ select teacher.teaid,teacher.name,total from teacher ,(select tea_stu.tea
+ id,count(*) total from student,tea_stu where student.stuid=tea_stu.stuid and stu
+ dent.age>12 group by tea_stu.teaid) as tea_stu2 where teacher.teaid=tea_stu2.tea
+ id and teacher.age<45;

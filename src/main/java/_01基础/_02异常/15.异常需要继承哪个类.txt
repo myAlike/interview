@@ -1,0 +1,2 @@
+15.异常需要继承哪个类
+基类为 Throwable，Error 和 Exception 继承 Throwable，RuntimeException 和 IOException 等继承 Exception，具体的 RuntimeException 继承 RuntimeException。

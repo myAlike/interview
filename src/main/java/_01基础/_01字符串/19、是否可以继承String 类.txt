@@ -1,0 +1,5 @@
+19、是否可以继承String 类? 【基础】
+答：String 类是final 类，故不可以继承。
+
+ 2、String 是可变的话？
+String 是 final 类型的，不可变。

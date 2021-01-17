@@ -1,0 +1,79 @@
+1、存储过程与触发器必须讲，经常被面试到?
+create procedure insert_Student (_name varchar(50),_age int ,out _id int)
+begin
+	insert into student value(null,_name,_age);
+	select max(stuId) into _id from student;
+end;
+
+call insert_Student('wfz',23,@id);
+select @id;
+
+mysql> create trigger update_Student BEFORE update on student FOR EACH ROW
+-> select * from student;
+触发器不允许返回结果
+
+create trigger update_Student BEFORE update on student FOR EACH ROW
+insert into  student value(null,'zxx',28);
+mysql的触发器目前不能对当前表进行操作
+
+create trigger update_Student BEFORE update on student FOR EACH ROW
+delete from articles  where id=8;
+这个例子不是很好，最好是用删除一个用户时，顺带删除该用户的所有帖子
+这里要注意使用OLD.id
+
+触发器用处还是很多的，比如校内网、开心网、Facebook，你发一个日志，自动通知好友，其实就是在增加日志时做一个后触发，再向通知表中写入条目。因为触发器效率高。而UCH没有用触发器，效率和数据处理能力都很低。
+存储过程的实验步骤：
+mysql> delimiter |
+mysql> create procedure insertArticle_Procedure (pTitle varchar(50),pBid int,out
+ pId int)
+    -> begin
+    -> insert into article1 value(null,pTitle,pBid);
+    -> select max(id) into pId from article1;
+    -> end;
+    -> |
+Query OK, 0 rows affected (0.05 sec)
+
+mysql> call insertArticle_Procedure('传智播客',1,@pid);
+    -> |
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> delimiter ;
+mysql> select @pid;
++------+
+| @pid |
++------+
+| 3    |
++------+
+1 row in set (0.00 sec)
+
+mysql> select * from article1;
++----+--------------+------+
+| id | title        | bid  |
++----+--------------+------+
+| 1  | test         | 1    |
+| 2  | chuanzhiboke | 1    |
+| 3  | 传智播客     | 1    |
++----+--------------+------+
+3 rows in set (0.00 sec)
+
+触发器的实验步骤：
+create table board1(id int primary key auto_increment,name varchar(50),ar
+ticleCount int);
+
+create table article1(id int primary key auto_increment,title varchar(50)
+,bid int references board1(id));
+
+delimiter |
+
+create trigger insertArticle_Trigger after insert on article1 for each ro
+w begin
+    -> update board1 set articleCount=articleCount+1 where id= NEW.bid;
+    -> end;
+    -> |
+
+delimiter ;
+
+insert into board1 value (null,'test',0);
+
+insert into article1 value(null,'test',1);
+还有，每插入一个帖子，都希望将版面表中的最后发帖时间，帖子总数字段进行同步更新，用触发器做效率就很高。下次课设计这样一个案例，写触发器时，对于最后发帖时间可能需要用declare方式声明一个变量，或者是用NEW.posttime来生成。

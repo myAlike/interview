@@ -1,0 +1,3 @@
+5.BeanFactory–BeanFactory 实现举例。
+Bean 工厂是工厂模式的一个实现，提供了控制反转功能，用来把应用的配置和依赖从正真 的应用代码中分离。
+最常用的 BeanFactory 实现是 XmlBeanFactory 类。

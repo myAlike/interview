@@ -1,0 +1,2 @@
+68.@Controller 注解
+该注解表明该类扮演控制器的角色，Spring 不需要你继承任何其他控制器基类或引用 ServletAPI。

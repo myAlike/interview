@@ -1,0 +1,5 @@
+22：Basic.Reject  的用法是什么？
+答：该信令可用于 consumer 对收到的 message 进行 reject 。 若 在 该信 令 中 设 置 requeue=true，则当 RabbitMQ server 收到该拒绝信令后，会将该 message 重新发送到下一 个处于 consume 状态的 consumer 处（理论上仍可能将该消息发送给当前 consumer）。若 设置 requeue=false ，则 RabbitMQ server 在收到拒绝信令后，将直接将该 message 从 queue  中移除。
+另外一种移除 queue  中 message  的小技巧是，consumer  回复 Basic.Ack   但不对获取到的
+message  做任何处理。
+而 Basic.Nack  是对 Basic.Reject  的扩展，以支持一次拒绝多条 message  的能力。

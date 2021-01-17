@@ -1,0 +1,1 @@
+ 25、Mybatis 中如何执行批处理？ 答：使用 BatchExecutor 完成批处理。

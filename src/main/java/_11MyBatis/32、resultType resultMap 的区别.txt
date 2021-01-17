@@ -1,0 +1,6 @@
+32、resultType resultMap 的区别？
+答：
+
+1）类的名字和数据库相同时，可以直接设置 resultType 参数为 Pojo 类
+
+2）若不同，需要设置 resultMap  将结果名字和 Pojo 名字进行转换

@@ -1,0 +1,3 @@
+13：向不存在的 exchange   发 publish   消息会发生什么？向不存在的 queue   执行
+consume  动作会发生什么？
+答：都会收到 Channel.Close  信令告之不存在（内含原因 404 NOT_FOUND）。

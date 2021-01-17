@@ -1,0 +1,8 @@
+38、Twemproxy 是什么？
+
+Twemproxy 是 Twitter 维护的（缓存）代理系统，代理 Memcached 的 ASCII 协议和 Redis 协 议。
+它是单线程程序，使用 c 语言编写，运行起来非常快。它是采用 Apache 2.0 license 的开 源软件。
+Twemproxy 支持自动分区，如果其代理的其中一个 Redis 节点不可用时，会自动 将该节点排除
+（这将改变原来的 keys-instances 的映射关系，所以你应该仅在把 Redis 当缓存 时使用 Twemproxy)。
+ Twemproxy 本身不存在单点问题，因为你可以启动多个 Twemproxy 实 例，然后让你的客户端去连接任意一个 Twemproxy 实例。
+  Twemproxy 是 Redis 客户端和服 务器端的一个中间层，由它来处理分区功能应该不算复杂，并且应该算比较可靠的。

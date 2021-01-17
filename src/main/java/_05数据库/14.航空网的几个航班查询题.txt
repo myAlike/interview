@@ -1,0 +1,54 @@
+14.航空网的几个航班查询题：
+ 表结构如下：
+ flight{flightID,StartCityID ,endCityID,StartTime}
+ city{cityID, CityName)
+ 实验环境：
+ create table city(cityID int auto_increment primary key,cityName varchar(20));
+ create table flight (flightID int auto_increment primary key,
+ 	StartCityID int references city(cityID),
+ 	endCityID  int references city(cityID),
+ 	StartTime timestamp);
+ //航班本来应该没有日期部分才好，但是下面的题目当中涉及到了日期
+ insert into city values(null,'北京'),(null,'上海'),(null,'广州');
+ insert into flight values
+ 	(null,1,2,'9:37:23'),(null,1,3,'9:37:23'),(null,1,2,'10:37:23'),(null,2,3,'10:37:23');
+
+
+ 1、查询起飞城市是北京的所有航班，按到达城市的名字排序
+
+
+ 参与运算的列是我起码能够显示出来的那些列，但最终我不一定把它们显示出来。各个表组合出来的中间结果字段中必须包含所有运算的字段。
+
+   select  * from flight f,city c
+ 	where f.endcityid = c.cityid and startcityid =
+ 	(select c1.cityid from city c1 where c1.cityname = "北京")
+ 	order by c.cityname asc;
+
+ mysql> select flight.flightid,'北京' startcity, e.cityname from flight,city e wh
+ ere flight.endcityid=e.cityid and flight.startcityid=(select cityid from city wh
+ ere cityname='北京');
+
+ mysql> select flight.flightid,s.cityname,e.cityname from flight,city s,city e wh
+ ere flight.startcityid=s.cityid and s.cityname='北京' and flight.endCityId=e.cit
+ yID order by e.cityName desc;
+
+
+ 2、查询北京到上海的所有航班纪录（起飞城市，到达城市，起飞时间，航班号）
+ select c1.CityName,c2.CityName,f.StartTime,f.flightID
+ from city c1,city c2,flight f
+ where f.StartCityID=c1.cityID
+ and f.endCityID=c2.cityID
+ and c1.cityName='北京'
+ and c2.cityName='上海'
+ 3、查询具体某一天（2005-5-8）的北京到上海的的航班次数
+ select count(*) from
+ (select c1.CityName,c2.CityName,f.StartTime,f.flightID
+ from city c1,city c2,flight f
+ where f.StartCityID=c1.cityID
+ and f.endCityID=c2.cityID
+ and c1.cityName='北京'
+ and c2.cityName='上海'
+ and 查帮助获得的某个日期处理函数(startTime) like '2005-5-8%'
+
+ mysql中提取日期部分进行比较的示例代码如下：
+ select * from flight where date_format(starttime,'%Y-%m-%d')='1998-01-02'

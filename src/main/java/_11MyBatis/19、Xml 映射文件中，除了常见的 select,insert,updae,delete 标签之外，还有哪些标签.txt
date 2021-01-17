@@ -1,0 +1,3 @@
+19、Xml 映射文件中，除了常见的 select|insert|updae|delete 标签之外，还有哪些标签？
+答：还有很多其他的标签，<resultMap>、<parameterMap>、<sql>、<include>、<selectKey>， 加上动态 sql 的 9 个标签，trim|where|set|foreach|if|choose|when|otherwise|bind 等，其中
+<sql>为 sql 片段标签，通过<include>标签引入 sql 片段，<selectKey>为不支持自增的主键生 成策略标签。

@@ -1,0 +1,2 @@
+17、构造器Constructor 是否可被override? 【基础】
+答：构造器Constructor 不能被继承，因此不能重写Overriding，但可以被重载Overloading。

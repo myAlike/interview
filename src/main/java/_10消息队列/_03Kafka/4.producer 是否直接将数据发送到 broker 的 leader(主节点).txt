@@ -1,0 +1,2 @@
+4.producer 是否直接将数据发送到 broker 的 leader(主节点)？
+producer 直接将数据发送到 broker 的 leader(主节点)，不需要在多个节点进行分发，为了帮 助 producer 做到这点，所有的 Kafka 节点都可以及时的告知:哪些节点是活动的，目标 topic 目标分区的 leader 在哪。这样 producer 就可以直接将消息发送到目的地了

@@ -1,0 +1,5 @@
+21.什么是 Springbeans?
+Springbeans 是那些形成 Spring 应用的主干的 java 对象。它们被 SpringIOC 容器初始化， 装配，和管理。
+这些 beans 通过容器中配置的元数据创建。比如，以 XML 文件中<bean/>的 形式定义。
+Spring 框架定义的 beans 都是单件 beans。在 beantag 中有个属性”singleton”，
+如果它 被赋为 TRUE，bean 就是单件，否则就是一个 prototypebean。默认是 TRUE，所以所有在 Spring 框架中的 beans 缺省都是单件。

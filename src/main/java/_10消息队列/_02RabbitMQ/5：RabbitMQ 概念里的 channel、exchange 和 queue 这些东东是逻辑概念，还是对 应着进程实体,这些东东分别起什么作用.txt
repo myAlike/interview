@@ -1,0 +1,4 @@
+5：RabbitMQ 概念里的 channel、exchange 和 queue 这些东东是逻辑概念，还是对 应着进程实体？这些东东分别起什么作用？
+答：queue 具有自己的 erlang 进程；exchange 内部实现为保存 binding 关系的查找表； channel 是实际进行路由工作的实体，即负责按照 routing_key 将 message 投递给 queue  。 由 AMQP 协议描述可知，channel 是真实 TCP 连接之上的虚拟连接，所有 AMQP 命令都 是通过 channel 发送的，且每一个 channel 有唯一的 ID。一个 channel 只能被单独一个操 作系统线程使用，故投递到特定 channel 上的 message 是有顺序的。但一个操作系统线程 上允许使用多个 channel 。channel 号为 0 的 channel 用于处理所有对于当前 connection 全局有效的帧，而 1-65535 号 channel 用于处理和特定 channel 相关的帧。AMQP  协议给 出的 channel  复用模型如下
+
+其中每一个 channel  运行在一个独立的线程上，多线程共享同一个 socket。

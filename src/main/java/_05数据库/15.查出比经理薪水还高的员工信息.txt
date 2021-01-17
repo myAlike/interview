@@ -1,0 +1,16 @@
+15.查出比经理薪水还高的员工信息：
+ Drop table if not exists employees;
+ create table employees(id int primary key auto_increment,name varchar(50)
+ ,salary int,managerid int references employees(id));
+ insert into employees values (null,' lhm',10000,null), (null,' zxx',15000,1
+ ),(null,'flx',9000,1),(null,'tg',10000,2),(null,'wzg',10000,3);
+
+ Wzg大于flx,lhm大于zxx
+
+ 解题思路：
+      根据sql语句的查询特点，是逐行进行运算，不可能两行同时参与运算。
+ 涉及了员工薪水和经理薪水，所有，一行记录要同时包含两个薪水，所有想到要把这个表自关联组合一下。
+      首先要组合出一个包含有各个员工及该员工的经理信息的长记录，譬如，左半部分是员工，右半部分是经理。而迪卡尔积会组合出很多垃圾信息，先去除这些垃圾信息。
+
+ select e.* from employees e,employees m where e.managerid=m.id and e.sala
+ ry>m.salary;

@@ -1,0 +1,38 @@
+2、列出各个部门中工资高于本部门的平均工资的员工数和部门号，并按部门号排序
+创建表：
+ mysql> createtable employee921(id int primary key auto_increment,name
+varchar(50),salary bigint,deptid int);
+
+插入实验数据：
+mysql> insert into employee921 values(null,'zs',1000,1),(null,'ls',1100,1),(null
+,'ww',1100,1),(null,'zl',900,1) ,(null,'zl',1000,2), (null,'zl',900,2),(null,'z
+l',1000,2) , (null,'zl',1100,2);
+
+编写 sql 语句：
+
+（）select avg(salary) from employee921 group by deptid;
+（）mysql>
+Select employee921.id,employee921.name,employee921.salary,employee921.dep
+tid tid from employee921 where salary > (select avg(salary) from employee921 where
+deptid = tid);
+ 效率低的一个语句，仅供学习参考使用（在 group by 之后不能使用 where，只能使用
+having，在 group by 之前可以使用 where，即表示对过滤后的结果分组）：
+mysql>
+Select employee921.id,employee921.name,employee921.salary,employee921.dep
+tid tid from employee921 where salary > (select avg(salary) from employee921 group by
+deptid having deptid = tid);
+（）select count(*) ,tid
+ from (
+
+selectemployee921.id,employee921.name,employee921.salary,employee921.deptid tid
+ from employee921
+ where salary>
+ (selectavg(salary) from employee921 where deptid = tid)
+ ) as t
+ group by tid ;
+
+另外一种方式：关联查询
+select a.ename,a.salary,a.deptid
+from emp a,
+ (selectdeptd,avg(salary) avgsal from emp group by deptid ) b
+where a.deptid=b.deptidand a.salary>b.avgsal;

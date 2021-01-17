@@ -1,0 +1,14 @@
+57、介绍 Collection 框架的结构
+答：随意发挥题，天南海北谁便谈，只要让别觉得你知识渊博，理解透彻即可。
+
+答： Collection 是最基本的集合接口，它的子接口有 List、Set，List 下又有 LinkedList、ArrayList、Vector。（千万不要把 Map 说进去了，因为 Collection 跟 Map 是同级别的）。
+
+
+44.java 集合 ...?
+List、Set、Map 是这个集合体系中最主要的三个接口。
+其中 List 和 Set继承自 Collection 接口
+Set 不允许元素重复。 HashSet和 TreeSet 是两个主要的实现类。
+List 有序且允许元素重复。 ArrayList、LinkedList 和 Vector 是三个主要的实现类。
+Map 也属于集合系统，但和 Collection 接口不同。 Map 是 key 对 value 的映射集合，其中 key 列就是一个集合。 key 不能重复，但是 value 可以重复。 HashMap、TreeMap
+和 Hashtable 是三个主要的实现类。
+SortedSet 和 SortedMap 接口对元素按指定规则排序， SortedMap 是对 key 列进行排序。

@@ -1,0 +1,63 @@
+4.每个月份的发生额都比101科目多的科目
+请用SQL语句实现：从TestDB数据表中查询出所有月份的发生额都比101科目相应月份的发生额高的科目。请注意：TestDB中有很多科目，都有1－12月份的发生额。
+AccID：科目代码，Occmonth：发生额月份，DebitOccur：发生额。
+数据库名：JcyAudit，数据集：Select * from TestDB
+准备数据的sql代码：
+drop table if exists TestDB;
+create table TestDB(id int primary key auto_increment,AccID varchar(20), Occmonth date, DebitOccur bigint);
+insert into TestDB values
+(null,'101','1988-1-1',100),
+(null,'101','1988-2-1',110),
+(null,'101','1988-3-1',120),
+(null,'101','1988-4-1',100),
+(null,'101','1988-5-1',100),
+(null,'101','1988-6-1',100),
+(null,'101','1988-7-1',100),
+(null,'101','1988-8-1',100);
+--复制上面的数据，故意把第一个月份的发生额数字改小一点
+insert into TestDB values
+(null,'102','1988-1-1',90),
+(null,'102','1988-2-1',110),
+(null,'102','1988-3-1',120),
+(null,'102','1988-4-1',100),
+(null,'102','1988-5-1',100),
+(null,'102','1988-6-1',100),
+(null,'102','1988-7-1',100),
+(null,'102','1988-8-1',100);
+--复制最上面的数据，故意把所有发生额数字改大一点
+insert into TestDB values
+(null,'103','1988-1-1',150),
+(null,'103','1988-2-1',160),
+(null,'103','1988-3-1',180),
+(null,'103','1988-4-1',120),
+(null,'103','1988-5-1',120),
+(null,'103','1988-6-1',120),
+(null,'103','1988-7-1',120),
+(null,'103','1988-8-1',120);
+--复制最上面的数据，故意把所有发生额数字改大一点
+insert into TestDB values
+(null,'104','1988-1-1',130),
+(null,'104','1988-2-1',130),
+(null,'104','1988-3-1',140),
+(null,'104','1988-4-1',150),
+(null,'104','1988-5-1',160),
+(null,'104','1988-6-1',170),
+(null,'104','1988-7-1',180),
+(null,'104','1988-8-1',140);
+--复制最上面的数据，故意把第二个月份的发生额数字改小一点
+insert into TestDB values
+(null,'105','1988-1-1',100),
+(null,'105','1988-2-1',80),
+(null,'105','1988-3-1',120),
+(null,'105','1988-4-1',100),
+(null,'105','1988-5-1',100),
+(null,'105','1988-6-1',100),
+(null,'105','1988-7-1',100),
+(null,'105','1988-8-1',100);
+答案：
+select distinct AccID from TestDB
+where AccID not in
+	(select TestDB.AccIDfrom TestDB,
+		 (select * from TestDB where AccID='101') as db101
+	where TestDB.Occmonth=db101.Occmonth and TestDB.DebitOccur<=db101.DebitOccur
+	);

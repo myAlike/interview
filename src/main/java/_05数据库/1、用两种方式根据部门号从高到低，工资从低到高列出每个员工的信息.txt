@@ -1,0 +1,4 @@
+1、用两种方式根据部门号从高到低，工资从低到高列出每个员工的信息。
+employee:
+ eid,ename,salary,deptid;
+select * from employee order by deptid desc,salary

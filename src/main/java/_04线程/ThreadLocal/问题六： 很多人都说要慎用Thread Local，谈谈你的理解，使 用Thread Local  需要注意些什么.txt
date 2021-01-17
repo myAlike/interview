@@ -1,0 +1,5 @@
+问题六： 很多人都说要慎用 Thread Local，谈谈你的理解，使用Thread Local 需要注意些什么？
+使用 Thread Local 要注意 remove！
+ThreadLocal的实现是基于一个所谓的Thread Local Map，在 ThreadLocal Map 中，它的key 是一个弱引用。
+通常弱引用都会和引用队列配合清理机制使用，但是Thread Local 是个例外，它并没有这么做。这意味着，废弃项目的回收依赖于显式地触发，否则就要等待线程结束，进而回收相应 Thread Local Map！这就是很多 OOM 的来源 所以通常
+为 worker 线程往往是不会退出的 。

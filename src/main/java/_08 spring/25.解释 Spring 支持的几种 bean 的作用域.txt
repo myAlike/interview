@@ -1,0 +1,10 @@
+25.解释 Spring 支持的几种 bean 的作用域。
+ Spring 框架支持以下五种 bean 的作用域：
+
+singleton:bean 在每个 Springioc 容器中只有一个实例。
+	prototype：一个 bean 的定义可以有多个实例。
+	request：每次 http 请求都会创建一个 bean，该作用域仅在基于 web 的 SpringApplicationContext 情形下有效。
+session：在一个 HTTPSession 中，一个 bean 定义对应一个实例。该作用域仅在基于 web 的 SpringApplicationContext 情形下有效。
+global-session：在一个全局的 HTTPSession 中，一个 bean 定义对应一个实例。该作用 域仅在基于 web 的 SpringApplicationContext 情形下有效。
+
+缺省的 Springbean 的作用域是 Singleton.

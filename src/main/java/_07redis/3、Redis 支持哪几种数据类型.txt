@@ -1,0 +1,2 @@
+3、Redis 支持哪几种数据类型？
+String、List、Set、Sorted Set、hashes

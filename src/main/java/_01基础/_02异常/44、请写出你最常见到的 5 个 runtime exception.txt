@@ -1,0 +1,14 @@
+44、请写出你最常见到的 5 个 runtime exception。
+这道题主要考你的代码量到底多大，如果你长期写代码的，应该经常都看到过一些系统方面
+的异常，你不一定真要回答出5个具体的系统异常，但你要能够说出什么是系统异常，以及
+几个系统异常就可以了，当然，这些异常完全用其英文名称来写是最好的，如果实在写不出，
+那就用中文吧，有总比没有强！
+所谓系统异常，就是…..，它们都是 RuntimeException 的子类，在 jdk doc 中查
+RuntimeException 类，就可以看到其所有的子类列表，也就是看到了所有的系统异常。我
+比较有印象的系统异常有：NullPointerException、ArrayIndexOutOfBoundsException、
+ClassCastException。
+ArithmeticException, ArrayStoreException, BufferOverflowException, BufferUnderflowException, CannotRedoException, CannotUndoException, ClassCastException, CMMException, ConcurrentModificationException, DOMException, EmptyStackException, IllegalArgumentException, IllegalMonitorStateException, IllegalPathStateException, IllegalStateException,
+ImagingOpException, IndexOutOfBoundsException, MissingResourceException, NegativeArraySizeException, NoSuchElementException, NullPointerException, ProfileDataException, ProviderException, RasterFormatException, SecurityException, SystemException, UndeclaredThrowableException, UnmodifiableSetException, UnsupportedOperationException
+
+
+答：常见的运行时异常有如下这些 ArithmeticException, ArrayStoreException, BufferOve rflowException, BufferUnderflowException, CannotRedoException,  CannotUndoExcepti on, ClassCastException, CMMException, ConcurrentModificationException, DOMExcep tion, EmptyStackException,  IllegalArgumentException,  IllegalMonitorStateExceptio n, IllegalPathStateException, IllegalStateException, ImagingOpException, IndexO utOfBoundsException, MissingResourceException, NegativeArraySizeException, NoSuc hElementException,  NullPointerException,  ProfileDataException,  ProviderExceptio n, RasterFormatException, SecurityException, SystemException, UndeclaredThrowab leException,  UnmodifiableSetException, UnsupportedOperationException

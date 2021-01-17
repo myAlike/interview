@@ -1,0 +1,9 @@
+16.常见的异常有哪些？
+1、 SQLException：操作数据库异常类
+2、 ClassCastException：数据类型转换异常。
+3、 NumberFormatException ：字符串转换为数字类型时抛出的异常。
+4、ArrayIndexOutOfBoundsException 数组越界
+5、StringIndexOutOfBoundsException 字符串越界
+6、UnsupportedOperationException 该操作不被支持
+7、ArithmeticException 算术错误
+8、IllegalArgumentException 非法参数

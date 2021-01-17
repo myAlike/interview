@@ -1,0 +1,2 @@
+7、Java 有没有goto? 【基础】
+答：goto 是java 中的保留字，现在没有在java 中使用。

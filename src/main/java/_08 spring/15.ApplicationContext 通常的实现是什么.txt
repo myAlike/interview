@@ -1,0 +1,7 @@
+15.ApplicationContext 通常的实现是什么?
+
+1、 FileSystemXmlApplicationContext：此容器从一个 XML 文件中加载 beans 的定义，
+XMLBean 配置文件的全路径名必须提供给它的构造函数。
+2、ClassPathXmlApplicationContext：此容器也从一个 XML 文件中加载 beans 的定义，这 里，
+你需要正确设置 classpath 因为这个容器将在 classpath 里找 bean 配置。
+3、WebXmlApplicationContext：此容器加载一个 XML 文件，此文件定义了一个 WEB 应用的 所有 bean。

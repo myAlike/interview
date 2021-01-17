@@ -1,0 +1,3 @@
+8、请解释 Nginx 服务器上的 Master 和 Worker 进程分别是什么?
+ Master 进程：读取及评估配置和维持 
+Worker 进程：处理请求

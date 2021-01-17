@@ -1,0 +1,5 @@
+9、请解释你如何通过不同于 80 的端口开启 Nginx? 
+为了通过一个不同的端口开启 Nginx，你必须进入/etc/Nginx/sites-enabled/， 如果这是默认文件，
+那么你必须打开名为“default”的文件。编辑文件，并放 置在你想要的端口：
+
+Like server { listen 81; } 

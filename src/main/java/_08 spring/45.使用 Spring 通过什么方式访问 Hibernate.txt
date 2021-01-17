@@ -1,0 +1,5 @@
+45.使用 Spring 通过什么方式访问 Hibernate?
+在 Spring 中有两种方式访问 Hibernate：
+
+控制反转 HibernateTemplate 和 Callback。
+继承 HibernateDAOSupport 提供一个 AOP 拦截器。

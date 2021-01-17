@@ -1,0 +1,32 @@
+23、String 和 StringBuffer 的区别? 【基础】
+答：JAVA 平台提供了两个类：String 和StringBuffer，它们可以储存和操作字符串，即包含多个字符的字符数据。这个String 类提供了数值不可改变的字符串。而这个StringBuffer 类提供的字符串进行修改。当你知道字符数据要改变的时候你就可以使用StringBuffer。典型地，你可以使用StringBuffers 来动态构造字符数据。
+24、String, StringBuffer StringBuilder 的区别。【基础】
+答：String 的长度是不可变的；StringBuffer 的长度是可变的，如果你对字符串中的内容经常进行操作，特别是内容要修改时，那么使用StringBuffer，如果最后需要String，那么使用StringBuffer 的toString()方法；线程安全；StringBuilder 是从JDK 5 开始，为StringBuffer 该类补充了一个单个线程使用的等价类；通常应该优先使用StringBuilder 类，因为它支持所有相同的操作，但由于它不执行同步，所以速度更快。
+
+String、StringBuffer、StringBuilder 最大的不同是 String 不可变，后者可变。StringBuffer 是线 程安全的，StringBuilder 线程不安全速度较快。
+
+
+
+
+
+JAVA 平台提供了两个类：String 和 StringBuffer，它们可以储存和操作字符串，即包含多个
+字符的字符数据。这个 String 类提供了数值不可改变的字符串。而这个 StringBuffer 类提供的字符串进行修改。当你知道字符数据要改变的时候你就可以使用 StringBuffer。典型地，
+你可以使用 StringBuffers 来动态构造字符数据。另外，String 实现了 equals 方法，new
+String(“abc”).equals(new String(“abc”)的结果为 true,而 StringBuffer 没有实现 equals 方法，所以，new StringBuffer(“abc”).equals(newStringBuffer(“abc”)的结果为 false。
+
+接着要举一个具体的例子来说明，我们要把1到100的所有数字拼起来，组成一个串。
+StringBuffer sbf = new StringBuffer();
+for (int i = 0; i < 100; i++) {
+	sbf.append(i);
+}
+上面的代码效率很高，因为只创建了一个 StringBuffer 对象，而下面的代码效率很低，因为
+创建了101个对象。
+String str = new String();
+for (int i = 0; i < 100; i++) {
+	str = str + i;
+}
+在讲两者区别时，应把循环的次数搞成10000，然后用 endTime-beginTime 来比较两者执
+行的时间差异，最后还要讲讲 StringBuilder 与 StringBuffer 的区别。
+
+String 覆盖了 equals 方法和 hashCode 方法，而 StringBuffer 没有覆盖 equals 方法和
+hashCode 方法，所以，将 StringBuffer 对象存储进 Java 集合类中时会出现问题。

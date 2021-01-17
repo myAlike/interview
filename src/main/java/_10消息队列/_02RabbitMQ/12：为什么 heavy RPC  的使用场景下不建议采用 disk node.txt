@@ -1,0 +1,2 @@
+12：为什么 heavy RPC  的使用场景下不建议采用 disk node  ？
+答：heavy RPC 是指在业务逻辑中高频调用 RabbitMQ 提供的 RPC 机制，导致不断创建、 销毁 reply queue ，进而造成 disk node 的性能问题（因为会针对元数据不断写盘）。所以 在使用 RPC  机制时需要考虑自身的业务场景。

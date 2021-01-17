@@ -1,0 +1,2 @@
+5、String str = new String("abc");创建了几个对象，为什么？
+创建了两个，"abc"本身创建在常量池，通过 new 又创建在堆中。

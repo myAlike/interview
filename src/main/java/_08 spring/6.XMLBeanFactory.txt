@@ -1,0 +1,4 @@
+6.XMLBeanFactory
+
+最常用的就是 org.springframework.beans.factory.xml.XmlBeanFactory，
+它根据 XML 文 件中的定义加载 beans。该容器从 XML 文件读取配置元数据并用它去创建一个完全配置的系 统或应用。

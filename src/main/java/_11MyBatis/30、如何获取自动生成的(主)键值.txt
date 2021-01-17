@@ -1,0 +1,2 @@
+30、如何获取自动生成的(主)键值？
+答：配置文件设置 usegeneratedkeys 为 true

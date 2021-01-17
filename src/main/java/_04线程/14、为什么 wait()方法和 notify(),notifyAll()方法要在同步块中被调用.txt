@@ -1,0 +1,3 @@
+14、为什么 wait()方法和 notify()/notifyAll()方法要在同步块中被调用
+
+这是 JDK 强制的，wait()方法和 notify()/notifyAll()方法在调用前都必须先 获得对象的锁

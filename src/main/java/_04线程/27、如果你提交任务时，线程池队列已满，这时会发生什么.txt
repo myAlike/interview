@@ -1,0 +1,7 @@
+27、如果你提交任务时，线程池队列已满，这时会发生什么
+
+这里区分一下：
+1）如果使用的是无界队列 LinkedBlockingQueue，也就是无界队列的话，没 关系，继续添加任务到阻塞队列中等待执行，因为 LinkedBlockingQueue 可 以近乎认为是一个无穷大的队列，可以无限存放任务
+2）如果使用的是有界队列比如  ArrayBlockingQueue，任务首先会被添加到
+
+ArrayBlockingQueue	中  ，  ArrayBlockingQueue	满  了  ，  会   根  据 maximumPoolSize 的值增加线程数量，如果增加了线程数量还是处理不过来， ArrayBlockingQueue		继  续  满  ，  那  么  则  会  使  用  拒  绝  策  略 RejectedExecutionHandler 处理满了的任务，默认是 AbortPolicy

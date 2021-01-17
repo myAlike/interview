@@ -1,0 +1,2 @@
+19：什么情况下会出现 blackholed  问题？
+答：blackholed 问题是指，向 exchange 投递了 message ，而由于各种原因导致该 message 丢失，但发送者却不知道。可导致 blackholed 的情况：1.向未绑定 queue 的 exchange 发 送 message；2.exchange 以 binding_key key_A 绑定了 queue queue_A，但向该 exchange 发 送 message  使用的 routing_key  却是 key_B。

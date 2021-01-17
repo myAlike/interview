@@ -1,0 +1,4 @@
+13、swtich 是否能作用在byte 上，是否能作用在long 上，是否能作用在String上? 【基础】
+答：switch（expr1）中，expr1 是一个整数表达式。因此传递给switch 和case语句的参数应该是int、short、char 或者byte。
+long,string 都不能作用于swtich。
+jdk7+中的 switch 可以使用 String 类型。

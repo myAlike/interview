@@ -1,0 +1,12 @@
+1.如何校验数字型?
+var re=/^\d{1,8}$|\.\d{1,2}$/;
+var str=document.form1.all(i).value;
+var r=str.match(re);
+if (r==null)
+{
+   sign=-4;
+   break;
+}
+else{
+   document.form1.all(i).value=parseFloat(str);
+}

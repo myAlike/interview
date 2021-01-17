@@ -1,0 +1,3 @@
+75、描述一下 JVM 加载 class 文件的原理机制?
+JVM 中类的装载是由 ClassLoader 和它的子类来实现的,Java ClassLoader 是一个重要的
+Java 运行时系统组件。它负责在运行时查找和装入类文件的类。

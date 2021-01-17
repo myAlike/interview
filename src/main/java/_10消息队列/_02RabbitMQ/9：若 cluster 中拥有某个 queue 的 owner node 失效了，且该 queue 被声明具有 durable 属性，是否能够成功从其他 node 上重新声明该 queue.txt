@@ -1,0 +1,2 @@
+9：若 cluster 中拥有某个 queue 的 owner node 失效了，且该 queue 被声明具有 durable 属性，是否能够成功从其他 node 上重新声明该 queue ？
+答：不能，在这种情况下，将得到 404 NOT_FOUND 错误。只能等 queue 所属的 node 恢 复后才能使用该 queue 。但若该 queue 本身不具有 durable 属性，则可在其他 node 上 重新声明。

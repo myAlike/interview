@@ -1,0 +1,5 @@
+29.什么是 Spring 的内部 bean？
+当一个 bean 仅被用作另一个 bean 的属性时，它能被声明为一个内部 bean，
+为了定义 innerbean，在 Spring 的基于 XML 的配置元数据中，
+可以在<property/>或<constructor-arg/> 元素内使用<bean/>元素，
+内部 bean 通常是匿名的，它们的 Scope 一般是 prototype。

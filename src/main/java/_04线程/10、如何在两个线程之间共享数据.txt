@@ -1,0 +1,3 @@
+10、如何在两个线程之间共享数据
+
+通 过 在 线 程 之 间 共 享 对 象 就 可 以 了 ， 然 后 通 过 wait/notify/notifyAll 、 await/signal/signalAll 进行唤起和等待，比方说阻塞队列 BlockingQueue 就是为线程之间共享数据而设计的

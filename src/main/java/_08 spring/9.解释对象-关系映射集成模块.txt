@@ -1,0 +1,3 @@
+9.解释对象/关系映射集成模块。
+Spring 通过提供 ORM 模块，支持我们在直接 JDBC 之上使用一个对象/关系映射映射(ORM)工 具，
+Spring 支持集成主流的 ORM 框架，如 Hiberate,JDO 和 iBATISSQLMaps。Spring 的事务 管理同样支持以上所有 ORM 框架及 JDBC。

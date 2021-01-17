@@ -1,0 +1,2 @@
+17：“dead letter”queue  的用途？
+答：当消息被 RabbitMQ server 投递到 consumer 后，但 consumer 却通过 Basic.Reject 进 行了拒绝时（同时设置 requeue=false），那么该消息会被放入“dead letter”queue 中。该 queue  可用于排查 message  被 reject  或 undeliver  的原因。

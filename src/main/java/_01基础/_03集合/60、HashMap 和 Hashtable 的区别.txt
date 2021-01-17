@@ -1,0 +1,40 @@
+60、HashMap 和 Hashtable 的区别
+（条理上还需要整理，也是先说相同点，再说不同点）
+HashMap 是 Hashtable 的轻量级实现（非线程安全的实现），他们都完成了 Map 接口，主
+要区别在于 HashMap 允许空（null）键值（key）,由于非线程安全，在只有一个线程访问
+的情况下，效率要高于 Hashtable。
+HashMap 允许将 null 作为一个 entry 的 key 或者 value，而 Hashtable 不允许。
+HashMap 把 Hashtable 的 contains 方法去掉了，改成 containsvalue 和 containsKey。因为
+contains 方法容易让人引起误解。
+Hashtable 继承自 Dictionary 类，而 HashMap 是 Java1.2引进的 Map interface 的一个实现。
+最大的不同是，Hashtable 的方法是 Synchronize 的，而 HashMap 不是，在多个线程访问
+Hashtable 时，不需要自己为它的方法实现同步，而 HashMap 就必须为之提供外同步。
+Hashtable 和 HashMap 采用的 hash/rehash 算法都大概一样，所以性能不会有很大的差异。
+
+就 HashMap 与 HashTable 主要从三方面来说。
+一.历史原因:Hashtable 是基于陈旧的 Dictionary 类的，HashMap 是 Java 1.2引进的 Map
+接口的一个实现
+二.同步性:Hashtable 是线程安全的，也就是说是同步的，而 HashMap 是线程序不安全的，
+不是同步的
+三.值：只有 HashMap 可以让你将空值作为一个表的条目的 key 或 value
+
+
+
+
+
+
+
+9.Hashtable 和 HashMap 的区别：
+答： 1.Hashtable 是 Dictionary 的子类， HashMap 是 Map 接口的一个实现类；
+2.Hashtable 中的方法是同步的，而 HashMap 中的方法在缺省情况下是非同步的。即是说，在多线程应用程序中，不用专门的操作就安全地可以使用 Hashtable 了；
+而对于 HashMap，则需要额外的同步机制。但 HashMap 的同步问题可通过 Collections 的一个静态方法得到解决： Map Collections.synchronizedMap(Map m)
+这个方法返回一个同步的 Map ，这个 Map 封装了底层的 HashMap 的所有方法，使得底层的 HashMap 即使是在多线程的环境中也是安全的。
+3.在 HashMap 中， null 可以作为键，这样的键只有一个；可以有一个或多个键所对应的值为 null 。当 get()方法返回 null 值时，即可以表示 HashMap 中没有该键，也可
+以表示该键所对应的值为 null。
+因此，在 HashMap 中不能由 get()方法来判断 HashMap 中是否存在某个键，而应该用 containsKey()方法来判断。
+Hashtable 继承自 Dictionary 类，而 HashMap 是 Java1.2引进的 Map interface 的一个实现
+HashMap 允许将 null 作为一个 entry 的 key 或者 value，而 Hashtable 不允许
+还有就是， HashMap 把 Hashtable 的 contains 方法去掉了，改成 containsvalue 和 containsKey。因为 contains 方法容易让人引起误解。
+最大的不同是， Hashtable 的方法是 Synchronize 的，而 HashMap 不是，在 多个线程访问 Hashtable 时，不需要自己为它的方法实现同步，而 HashMap 就必须为之提
+供外同步。
+Hashtable 和 HashMap 采用的 hash/rehash 算法都大概一样，所以性能不会有很大的差异。

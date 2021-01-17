@@ -1,0 +1,4 @@
+36.什么是基于 Java 的 Spring 注解配置?给一些注解的例子.
+基于 Java 的配置，允许你在少量的 Java 注解的帮助下，进行你的大部分 Spring 配置而非 通过 XML 文件。
+以@Configuration 注解为例，它用来标记类可以当做一个 bean 的定义，被 SpringIOC 容器 使用。
+另一个例子是@Bean 注解，它表示此方法将要返回一个对象，作为一个 bean 注册进 Spring 应用上下文。

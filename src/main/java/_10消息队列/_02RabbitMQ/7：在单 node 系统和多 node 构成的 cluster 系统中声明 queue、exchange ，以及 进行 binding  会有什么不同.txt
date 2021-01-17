@@ -1,0 +1,2 @@
+7：在单 node 系统和多 node 构成的 cluster 系统中声明 queue、exchange ，以及 进行 binding  会有什么不同？
+答：当你在单 node 上声明 queue 时，只要该 node 上相关元数据进行了变更，你就会得 到 Queue.Declare-ok 回应；而在 cluster 上声明 queue ，则要求 cluster 上的全部 node 都 要进行元数据成功更新，才会得到 Queue.Declare-ok 回应。另外，若 node 类型为 RAM node 则变更的数据仅保存在内存中，若类型为 disk node 则还要变更保存在磁盘上的数 据。

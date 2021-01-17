@@ -1,0 +1,5 @@
+9.所有部门之间的比赛组合
+一个叫 department 的表，里面只有一个字段 name,一共有4条纪录，分别是 a,b,c,d,对应四个球对，现在四个球对进行比赛，用一条 sql 语句显示所有可能的比赛组合.
+答：select a.name,b.name
+from team a, team b
+where a.name < b.name

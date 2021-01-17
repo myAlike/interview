@@ -1,0 +1,38 @@
+1、说出一些数据库优化方面的经验?
+用PreparedStatement 一般来说比Statement性能高：一个sql 发给服务器去执行，涉及步骤：语法检查、语义分析， 编译，缓存
+“inert into user values(1,1,1)”-二进制
+“inert into user values(2,2,2)”-二进制
+“inert into user values(?,?,?)”-二进制
+
+
+
+有外键约束会影响插入和删除性能，如果程序能够保证数据的完整性，那在设计数据库时就去掉外键。（比喻：就好比免检产品，就是为了提高效率，充分相信产品的制造商）
+（对于hibernate来说，就应该有一个变化：empleyee->Deptment对象，现在设计时就成了employeedeptid）
+
+看mysql帮助文档子查询章节的最后部分，例如，根据扫描的原理，下面的子查询语句要比第二条关联查询的效率高：
+1.  select e.name,e.salary where e.managerid=(select id from employee where name='zxx');
+
+2.   select e.name,e.salary,m.name,m.salary from employees e,employees m where
+ e.managerid = m.id and m.name='zxx';
+
+表中允许适当冗余，譬如，主题帖的回复数量和最后回复时间等
+将姓名和密码单独从用户表中独立出来。这可以是非常好的一对一的案例哟！
+
+sql语句全部大写，特别是列名和表名都大写。特别是sql命令的缓存功能，更加需要统一大小写，sql语句发给oracle服务器语法检查和编译成为内部指令缓存和执行指令。根据缓存的特点，不要拼凑条件，而是用?和PreparedStatment
+
+还有索引对查询性能的改进也是值得关注的。
+
+备注：下面是关于性能的讨论举例
+
+4航班 3个城市
+
+m*n
+
+select * from flight,city where flight.startcityid=city.cityid and city.name='beijing';
+
+m + n
+
+
+select * from flight where startcityid = (select cityid from city where cityname='beijing');
+
+select flight.id,'beijing',flight.flightTime from flight where startcityid = (select cityid from city where cityname='beijing')

@@ -1,0 +1,3 @@
+12、请解释 ngx_http_upstream_module 的作用是什么?
+
+ngx_http_upstream_module 用于定义可通过 fastcgi 传递、proxy 传递、uwsgi 传递、memcached 传递和 scgi 传递指令来引用的服务器组。

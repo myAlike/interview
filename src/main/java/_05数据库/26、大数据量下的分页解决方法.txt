@@ -1,0 +1,7 @@
+26、大数据量下的分页解决方法。
+答：最好的办法是利用 sql 语句进行分页，这样每次查询出的结果集中就只包含某页的数据内容。再 sql 语句无法实现分页的情况下，可以考虑对大的结果集通过游标定位方式来获取某页的数据。
+sql 语句分页，不同的数据库下的分页方案各不一样，下面是主流的三种数据库的分页 sql：
+
+mysql:
+
+ String sql = "select * from students order by id limit " + pageSize*(pageNumber-1) + "," +pageSize;

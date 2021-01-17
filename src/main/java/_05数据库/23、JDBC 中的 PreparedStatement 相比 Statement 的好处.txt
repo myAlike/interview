@@ -1,0 +1,7 @@
+23、JDBC 中的 PreparedStatement 相比 Statement 的好处
+答：一个 sql 命令发给服务器去执行的步骤为：语法检查，语义分析，编译成内部指令，缓存指令，执行指令等过程。
+select * from student where id =3----缓存
+select * from student where id =3----直接取
+select * from student where id =4----会怎么干？
+上面说的是性能提高
+可以防止 sql 注入。

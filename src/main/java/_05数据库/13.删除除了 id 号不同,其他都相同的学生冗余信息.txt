@@ -1,0 +1,22 @@
+3.删除除了id号不同,其他都相同的学生冗余信息
+2.学生表 如下:
+id号   学号   姓名 课程编号 课程名称 分数
+1        2005001  张三  0001      数学    69
+2        2005002  李四  0001      数学    89
+3        2005001  张三  0001      数学    69
+A: delete from tablename where id号 not in(select min(id号) from tablename group by 学号,姓名,课程编号,课程名称,分数)
+实验：
+create table student2(id int auto_increment primary key,code varchar(20),name varchar(20));
+insert into student2 values(null,'2005001','张三'),(null,'2005002','李四'),(null,'2005001','张三');
+
+//如下语句，mysql报告错误，可能删除依赖后面统计语句，而删除又导致统计语句结果不一致。
+
+delete from student2 where id not in(select min(id) from student2 group by name);
+//但是，如下语句没有问题：
+select *  from student2 where id not in(select min(id) from student2 group by name);
+//于是，我想先把分组的结果做成虚表，然后从虚表中选出结果，最后再将结果作为删除的条件数据。
+delete from student2 where id not in(select mid from (select min(id) mid
+from student2 group by name) as t);
+或者：
+delete from student2 where id not in(select min(id) from (select * from s
+tudent2) as t group by t.name);

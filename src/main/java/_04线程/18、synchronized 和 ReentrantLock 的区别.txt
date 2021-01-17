@@ -1,0 +1,32 @@
+18、synchronized 和 ReentrantLock 的区别
+
+synchronized 是和 if、else、for、while 一样的关键字，ReentrantLock 是类，这是二者的本质区别。既然 ReentrantLock 是类，那么它就提供了比 synchronized 更多更灵活的特性，可以被继承、可以有方法、可以有各种各 样的类变量，ReentrantLock 比 synchronized 的扩展性体现在几点上：
+（1）ReentrantLock 可以对获取锁的等待时间进行设置，这样就避免了死锁
+（2）ReentrantLock 可以获取各种锁的信息
+（3）ReentrantLock 可以灵活地实现多路通知
+另 外 ， 二 者 的 锁 机 制 其 实 也 是 不 一 样 的 。 ReentrantLock 底 层 调 用 的 是 Unsafe 的 park 方法加锁，synchronized 操作的应该是对象头中 mark word， 这点我不能确定。
+
+
+问题一：跟Synchronized相比，可重入锁ReentrantLock其实现原理有什么不同？
+其实，锁的实现原理基本是为了达到一个目的：让所有的线程都能看到某种标记。
+Synchronized通过在对象头中设置标记实现了这一目的，是一种JVM原生的锁实现方式，而ReentrantLock以及所有的基于Lock接口的实现类，都是通过用一个volitile修饰的int型变量，并保证每个线程都能拥有对该int的可见性和原子修改，其本质是基于所谓的AQS框架。
+
+
+问题三：请尽可能详尽地对比下Synchronized和ReentrantLock的异同。
+ReentrantLock是Lock的实现类，是一个互斥的同步锁。
+
+从功能角度，ReentrantLock比Synchronized的同步操作更精细（因为可以像普通对象一样使用），甚至实现Synchronized没有的高级功能，如：
+	等待可中断：当持有锁的线程长期不释放锁的时候，正在等待的线程可以选择放弃等待，对处理执行时间非常长的同步块很有用。
+	带超时的获取锁尝试：在指定的时间范围内获取锁，如果时间到了仍然无法获取则返回。
+	可以判断是否有线程在排队等待获取锁。
+
+	可以响应中断请求：与Synchronized不同，当获取到锁的线程被中断时，能够响应中断，中断异常将会被抛出，同时锁会被释放。
+	可以实现公平锁。
+
+从锁释放角度，Synchronized在	JVM层面上实现的，不但可以通过一些监控工具监控Synchronized的锁定，而且在代码执行出现异常时，
+
+
+的，要保证锁定一定会被释放，就必须将unLock()放到finally{}中。
+
+从性能角度，Synchronized早期实现比较低效，对比ReentrantLock，大多数场景性能都相差较大。
+但是在Java6中对其进行了非常多的改进，在竞争不激烈时，Synchronized的性能要优于ReetrantLock；在高竞争情况下，Synchronized的性能会下降几十倍，但是ReetrantLock的性能能维持常态。

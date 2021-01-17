@@ -1,0 +1,10 @@
+36、IBatis 和 MyBatis 在细节上的不同有哪些？
+ 答：
+
+1）在 sql 里面变量命名有原来的#变量# 变成了#{变量}
+
+2）原来的$变量$变成了${变量}
+
+3）原来在 sql 节点里面的 class 都换名字交 type
+
+4）原来的 queryForObject queryForList 变成了 selectOne selectList5）原来的别名设置在映射 文件里面放在了核心配置文件里。

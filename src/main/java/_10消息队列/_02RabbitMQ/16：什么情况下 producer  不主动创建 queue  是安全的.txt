@@ -1,0 +1,3 @@
+16：什么情况下 producer  不主动创建 queue  是安全的？
+答：1.message   是允许丢失的；2.实现了针对未处理消息的 republish    功能（例如采用
+Publisher Confirm  机制）。

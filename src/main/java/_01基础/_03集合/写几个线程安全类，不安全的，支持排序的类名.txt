@@ -1,0 +1,5 @@
+7.写几个线程安全类，不安全的，支持排序的类名？
+线程安全类：Vector 、Hashtable、
+不安全的类：ArrayList、HashMap、Linkedlist
+支持排序的类：TreeSet
+JDK也提供一个对集合类进行线程安全处理的类Collections类，可以对一些非结程安全的类进行同步处理。

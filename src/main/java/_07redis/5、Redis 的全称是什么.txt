@@ -1,0 +1,4 @@
+
+5、Redis 的全称是什么？
+
+Remote Dictionary Server。

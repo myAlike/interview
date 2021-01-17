@@ -1,0 +1,8 @@
+19、一个用户具有多个角色，请查询出该表中具有该用户的所有角色的其他用户。
+select count(*) as num,tb.id from tb,
+(select role from tb where id=xxx) as t1
+where
+tb.role = t1.role and tb.id != t1.id
+group by tb.id
+having
+ num = select count(role) from tb where id=xxx;

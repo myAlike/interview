@@ -1,0 +1,2 @@
+1：RabbitMQ  中的 broker  是指什么？cluster  又是指什么？
+答：broker 是指一个或多个 erlang node 的逻辑分组，且 node 上运行着 RabbitMQ 应用 程序。cluster  是在 broker  的基础之上，增加了 node  之间共享元数据的约束。

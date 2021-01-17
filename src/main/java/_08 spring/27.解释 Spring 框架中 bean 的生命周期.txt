@@ -1,0 +1,10 @@
+27.解释 Spring 框架中 bean 的生命周期。
+
+	Spring 容器从 XML 文件中读取 bean 的定义，并实例化 bean。
+	Spring 根据 bean 的定义填充所有的属性。
+如果 bean 实现了 BeanNameAware 接口，Spring 传递 bean 的 ID 到 setBeanName 方法。
+如果 Bean 实现了 BeanFactoryAware 接口，Spring 传递 beanfactory 给 setBeanFactory 方法。
+如果有任何与 bean 相关联的 BeanPostProcessors，Spring 会在 postProcesserBeforeInitialization()方法内调用它们。
+如果 bean 实现 IntializingBean 了，调用它的 afterPropertySet 方法，如果 bean 声明 了初始化方法，调用此初始化方法。
+如果有 BeanPostProcessors 和 bean 关联，这些 bean 的 postProcessAfterInitialization()方法将被调用。
+如果 bean 实现了 DisposableBean，它将调用 destroy()方法。

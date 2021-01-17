@@ -1,0 +1,10 @@
+7.分页语句
+取出 sql 表中第31到40的记录（以自动增长 ID 为主键）
+sql server 方案1：
+ Select top 10 * from t where id not in (select top 30 id from t order by id ) order by id
+sql server 方案2：
+ Select top 10 * from t where id in (select top 40 id from t order by id) order by id desc
+
+mysql 方案：select * from t order by id limit 30,10
+
+oracle 方案：select * from (select rownum r,* from t where r<=40) wherer>30

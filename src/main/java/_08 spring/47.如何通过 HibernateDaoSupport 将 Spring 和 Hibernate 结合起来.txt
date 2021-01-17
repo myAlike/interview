@@ -1,0 +1,6 @@
+47.如何通过 HibernateDaoSupport 将 Spring 和 Hibernate 结合起来？
+用 Spring 的 SessionFactory 调用 LocalSessionFactory。集成过程分三步：
+
+配置 theHibernateSessionFactory。
+继承 HibernateDaoSupport 实现一个 DAO。
+	在 AOP 支持的事务中装配。

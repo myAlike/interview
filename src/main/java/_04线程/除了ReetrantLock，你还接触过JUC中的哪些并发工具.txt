@@ -1,0 +1,8 @@
+问题五：除了ReetrantLock，你还接触过JUC中的哪些并发工具？通常所说的并发包（JUC）也就是	java.util.concurrent及其子包，集中了Java并发的各种基础工具类，具体主要包括几个方面：
+提供了	CountDownLatch、CyclicBarrier、Semaphore	等，比Synchronized更加高级，可以实现更加丰富多线程操作的同步结构。
+者通过类似快照机制实现线程安全的动态数组CopyOnWriteArrayList
+
+等，各种线程安全的容器。
+
+提供了ArrayBlockingQueue、SynchorousQueue或针对特定场景的PriorityBlockingQueue等，各种并发队列实现。
+	强大的Executor框架，可以创建各种不同类型的线程池，调度任务运行等。

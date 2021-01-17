@@ -1,0 +1,4 @@
+
+10、String 与 byte[]两者相互之间如何转换？
+
+String > byte[]  通过 String 类的 getBytes 方法；byte[] > String 通过 new String(byte[])构造器。

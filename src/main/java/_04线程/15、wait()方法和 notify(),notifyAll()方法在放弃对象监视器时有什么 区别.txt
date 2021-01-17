@@ -1,0 +1,2 @@
+15、wait()方法和 notify()/notifyAll()方法在放弃对象监视器时有什么 区别
+wait()方法和 notify()/notifyAll()方法在放弃对象监视器的时候的区别在于： wait()方法立即释放对象监视器， notify()/notifyAll()方法则会等待线 程剩余代码执行完毕才会放弃对象监视器。

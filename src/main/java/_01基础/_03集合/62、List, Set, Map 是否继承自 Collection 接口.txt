@@ -1,0 +1,2 @@
+62、List, Set, Map 是否继承自 Collection 接口?
+ List，Set 是，Map 不是

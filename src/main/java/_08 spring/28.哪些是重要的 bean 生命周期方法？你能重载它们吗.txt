@@ -1,0 +1,5 @@
+28.哪些是重要的 bean 生命周期方法？你能重载它们吗？
+有两个重要的 bean 生命周期方法，第一个是 setup，它是在容器加载 bean 的时候被调用。
+第二个方法是 teardown 它是在容器卸载类的时候被调用。
+Thebean 标签有两个重要的属性（init-method 和 destroy-method）。用它们你可以自己定 制初始化和注销方法。
+它们也有相应的注解（@PostConstruct 和@PreDestroy）。

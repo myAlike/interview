@@ -1,0 +1,3 @@
+66.WebApplicationContext
+WebApplicationContext 继承了 ApplicationContext 并增加了一些 WEB 应用必备的特有功 能，
+它不同于一般的 ApplicationContext，因为它能处理主题，并找到被关联的 servlet。

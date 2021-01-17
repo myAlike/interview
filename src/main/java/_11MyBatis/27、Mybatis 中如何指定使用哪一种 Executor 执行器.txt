@@ -1,0 +1,2 @@
+27、Mybatis 中如何指定使用哪一种 Executor 执行器？
+答：在 Mybatis 配置文件中，可以指定默认的 ExecutorType 执行器类型，也可以手动给 DefaultSqlSessionFactory 的创建 SqlSession 的方法传递 ExecutorType 类型参数。

@@ -1,0 +1,4 @@
+10.解释 WEB 模块。
+Spring 的 WEB 模块是构建在 applicationcontext 模块基础之上，
+提供一个适合 web 应用的 上下文。这个模块也包括支持多种面向 web 的任务，
+如透明地处理多个文件上传请求和程序 级请求参数的绑定到你的业务对象。它也有对 JakartaStruts 的支持。

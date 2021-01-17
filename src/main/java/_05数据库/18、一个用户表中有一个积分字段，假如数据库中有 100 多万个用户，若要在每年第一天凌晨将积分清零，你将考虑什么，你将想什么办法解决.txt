@@ -1,0 +1,22 @@
+18、一个用户表中有一个积分字段，假如数据库中有100多万个用户，若要在每年第一天凌晨将积分清零，你将考虑什么，你将想什么办法解决?
+   alter table drop column score;
+   alter table add colunm score int;
+   可能会很快，但是需要试验，试验不能拿真实的环境来操刀，并且要注意，
+   这样的操作时无法回滚的，在我的印象中，只有inert update delete等DML语句才能回滚，
+   对于create table,drop table ,alter table等DDL语句是不能回滚。
+
+
+   解决方案一，update user set score=0;
+   解决方案二，假设上面的代码要执行好长时间，超出我们的容忍范围，那我就alter table user drop column score;alter table user add column score int。
+
+   下面代码实现每年的那个凌晨时刻进行清零。
+   Runnable runnable =
+   	new Runnable(){
+   		public void run(){
+   			clearDb();
+   			schedule(this,new Date(new Date().getYear()+1,0,0));
+   			}
+   			};
+
+   schedule(runnable,
+   	new Date(new Date().getYear()+1,0,1));

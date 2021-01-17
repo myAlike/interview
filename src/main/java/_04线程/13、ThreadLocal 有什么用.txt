@@ -1,0 +1,3 @@
+13、ThreadLocal 有什么用
+
+简单说 ThreadLocal 就是一种以空间换时间的做法，在每个 Thread 里面维 护了一个以开地址法实现的 ThreadLocal.ThreadLocalMap，把数据进行隔 离，数据不共享，自然就没有线程安全方面的问题了

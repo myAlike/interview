@@ -1,0 +1,10 @@
+35、Redis 分区有什么缺点？
+
+涉及多个 key 的操作通常不会被支持。例如你不能对两个集合求交集，因为他们可能被存储 到不同的 Redis 实例
+（实际上这种情况也有办法，但是不能直接使用交集指令）。 同时操作多个 key,则不能使用 Redis 事务.
+分区使用的粒度是 key，不能使用一个非常长的排序 key 存储一个数据集（The partitioning granularity is the key,
+so it is not possible to shard a dataset with a single huge key like a very big sorted set）.
+当使用分区的时候，数据处理会非常复杂，例如为了备份你必须从不同的 Redis 实例和主机
+同时收集 RDB / AOF 文件。
+分区时动态扩容或缩容可能非常复杂。Redis 集群在运行时增加或者删除 Redis 节点，能做 到最大程度对用户透明地数据再平衡，
+但其他一些客户端分区或者代理分区方法则不支持这 种特性。然而，有一种预分片的技术也可以较好的解决这个问题。

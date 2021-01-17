@@ -1,0 +1,2 @@
+3：RAM node  和 disk node  的区别？
+答：RAM node 仅将 fabric（即 queue、exchange 和 binding 等 RabbitMQ 基础构件）相关 元数据保存到内存中，但 disk node 会在内存和磁盘中均进行存储。RAM node 上唯一会存 储到磁盘上的元数据是 cluster 中使用的 disk node 的地址。要求在 RabbitMQ cluster 中至 少存在一个 disk node  。

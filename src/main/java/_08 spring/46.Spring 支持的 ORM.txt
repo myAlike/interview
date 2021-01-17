@@ -1,0 +1,9 @@
+46.Spring 支持的 ORM
+ Spring 支持以下 ORM：
+
+Hibernate
+iBatis
+JPA(JavaPersistenceAPI)
+TopLink
+JDO(JavaDataObjects)
+OJB

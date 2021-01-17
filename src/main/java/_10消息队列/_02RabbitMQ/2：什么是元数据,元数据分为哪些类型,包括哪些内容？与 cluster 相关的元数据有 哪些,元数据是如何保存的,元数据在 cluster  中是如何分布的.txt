@@ -1,0 +1,3 @@
+2：什么是元数据？元数据分为哪些类型？包括哪些内容？与 cluster 相关的元数据有 哪些？元数据是如何保存的？元数据在 cluster  中是如何分布的？
+答：在非 cluster 模式下，元数据主要分为 Queue 元数据（queue 名字和属性等）、Exchange 元数据（exchange 名字、类型和属性等）、Binding 元数据（存放路由关系的查找表）、Vhost 元数据（vhost 范围内针对前三者的名字空间约束和安全属性设置）。在 cluster 模式下，还 包括 cluster 中 node 位置信息和 node 关系信息。元数据按照 erlang node 的类型确定是 仅保存于 RAM 中，还是同时保存在 RAM 和 disk 上。元数据在 cluster 中是全 node 分 布的。
+下图所示为 queue  的元数据在单 node  和 cluster  两种模式下的分布图。

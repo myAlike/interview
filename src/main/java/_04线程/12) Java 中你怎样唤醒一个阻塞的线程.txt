@@ -1,0 +1,6 @@
+12) Java 中你怎样唤醒一个阻塞的线程？
+
+这是个关于线程和阻塞的棘手的问题，它有很多解决方法。如果线程遇到了 IO 阻塞，我并 且不认为有一种方法可以中止线程。如果线程因为调用 wait()、sleep()、或者 join()方法而导 致的阻塞，你可以中断线程，并且通过抛出 InterruptedException 来唤醒它。我之前写的《How to deal with blocking methods in java》有很多关于处理线程阻塞的信息。
+
+
+如果线程是因为调用了 wait()、sleep()或者 join()方法而导致的阻塞，可以 中断线程，并且通过抛出 InterruptedException 来唤醒它；如果线程遇到了 IO 阻塞，无能为力，因为 IO 是操作系统实现的，Java 代码并没有办法直接 接触到操作系统。

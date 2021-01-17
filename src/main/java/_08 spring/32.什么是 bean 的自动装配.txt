@@ -1,0 +1,3 @@
+32.什么是 bean 的自动装配？
+Spring 容器能够自动装配相互合作的 bean，这意味着容器不需要<constructor-arg>和
+<property>配置，能通过 Bean 工厂自动处理 bean 之间的协作。

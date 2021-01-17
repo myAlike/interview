@@ -1,0 +1,28 @@
+9、可以自定义 java.lang.String 类并使用吗？
+
+可以自定义 java.lang.String 类并编译成功，但不能被加载使用，具体请学习类加载机制。
+
+
+82、能不能自己写个类，也叫 java.lang.String？
+可以，但在应用的时候，需要用自己的类加载器去加载，否则，系统的类加载器永远只是去
+加载 jre.jar 包中的那个 java.lang.String。由于在 tomcat 的 web 应用程序中，都是由 webapp自己的类加载器先自己加载 WEB-INF/classess 目录中的类，然后才委托上级的类加载器加载，如果我们在 tomcat 的 web 应用程序中写一个 java.lang.String，这时候 Servlet 程序加载的就是我们自己写的 java.lang.String，但是这么干就会出很多潜在的问题，原来所有用了 java.lang.String 类的都将出现问题。
+
+虽然 java 提供了 endorsed 技术，可以覆盖 jdk 中的某些类，具体做法是….。但是，能够
+被覆盖的类是有限制范围，反正不包括 java.lang 这样的包中的类。
+
+（下面的例如主要是便于大家学习理解只用，不要作为答案的一部分，否则，人家怀疑是题
+目泄露了）例如，运行下面的程序：
+package java.lang;
+publicclass String {
+  /**
+ * @paramargs
+ */
+ public static voidmain(String[] args) {
+ // TODO Auto-generated method stub
+ System.out.println("string");
+ }
+}
+报告的错误如下：
+java.lang.NoSuchMethodError:main
+Exception inthread "main"
+这是因为加载了 jre 自带的 java.lang.String，而该类中没有 main 方法。

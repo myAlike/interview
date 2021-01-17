@@ -1,0 +1,5 @@
+16.Bean 工厂和 Applicationcontexts 有什么区别？
+Applicationcontexts 提供一种方法处理文本消息，一个通常的做法是加载文件资源（比如 镜像），
+它们可以向注册为监听器的 bean 发布事件。另外，在容器或容器内的对象上执行 的那些不得不由 bean 工厂以程序化方式处理的操作，
+可以在 Applicationcontexts 中以声 明的方式处理。Applicationcontexts 实现了 MessageSource 接口，
+该接口的实现以可插拔 的方式提供获取本地化消息的方法。

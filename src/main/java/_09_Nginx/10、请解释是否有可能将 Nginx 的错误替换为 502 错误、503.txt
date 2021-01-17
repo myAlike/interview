@@ -1,0 +1,9 @@
+10、请解释是否有可能将 Nginx 的错误替换为 502 错误、503?
+
+502 =错误网关
+
+503 =服务器超载
+
+有可能，但是您可以确保 fastcgi_intercept_errors 被设置为 ON，并使用错误 页面指令。
+
+Location / {fastcgi_pass 127.0.01:9001;fastcgi_intercept_errors on;error_page 502 =503/error_page.html;#…}

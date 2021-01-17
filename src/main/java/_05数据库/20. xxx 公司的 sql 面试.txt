@@ -1,0 +1,30 @@
+20. xxx 公司的 sql 面试
+Table EMPLOYEES Structure:
+EMPLOYEE_ID NUMBER Primary Key,
+FIRST_NAME VARCHAR2(25),
+LAST_NAME VARCHAR2(25),
+Salary number(8,2),
+HiredDate DATE,
+Departmentid number(2)
+
+Table Departments Structure:
+Departmentid number(2) Primary Key,
+DepartmentName VARCHAR2(25).
+(2）基于上述 EMPLOYEES 表写出查询：写出雇用日期在今年的，或者工资在[1000,2000]
+之间的，或者员工姓名（last_name）以’Obama’打头的所有员工，列出这些员工的全部个人信息。（4分）
+Select * from employees
+where Year(hiredDate) = Year(date())
+ or (salary between 1000 and 200)
+ or left(last_name,3)='abc';
+
+(3) 基于上述 EMPLOYEES 表写出查询：查出部门平均工资大于1800元的部门的所有员工，
+列出这些员工的全部个人信息。（4分）
+select id,name,salary,deptid did from employees where (select avg(salary)
+from employees where deptid = did) > 1800;
+
+(4) 基于上述 EMPLOYEES 表写出查询：查出个人工资高于其所在部门平均工资的员工，
+列出这些员工的全部个人信息及该员工工资高出部门平均工资百分比。（5分）
+Select employees.*,(employee1.salary-t.avgSalary)*100/employees.salary
+from employees,
+ (select deptid,avg(salary) avgSalary fromemployees group by deptid) as t
+where employees.deptid = t.deptid and employees.salary>t.avgSalary;

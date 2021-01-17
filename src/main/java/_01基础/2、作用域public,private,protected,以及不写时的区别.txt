@@ -1,0 +1,8 @@
+2、作用域public,private,protected,以及不写时的区别？【基础】
+答：区别如下：
+作用域	当前类	同包	子孙类	其他
+public 	√ 		√ 		√ 		√
+protected √	   √ 	   √ 		×
+default 	√ 		√ 		× 		×
+private 	√ 		× 		× 		×
+不写时默认为default。

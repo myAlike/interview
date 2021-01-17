@@ -1,0 +1,2 @@
+21：Consumer Cancellation Notification 机制用于什么场景？
+答：用于保证当镜像 queue 中 master  挂掉时，连接到 slave  上的 consumer  可以收到自 身 consume 被取消的通知，进而可以重新执行 consume 动作从新选出的 master 出获得 消息。若不采用该机制，连接到 slave 上的 consumer 将不会感知 master 挂掉这个事情， 导致后续无法再收到新 master 广播出来的 message 。另外，因为在镜像 queue 模式下， 存在将 message 进行 requeue 的可能，所以实现 consumer 的逻辑时需要能够正确处理出 现重复 message  的情况。

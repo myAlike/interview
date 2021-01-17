@@ -1,0 +1,12 @@
+71、说出一些常用的类，包，接口，请各举 5 个
+要让人家感觉你对 java ee 开发很熟，所以，不能仅仅只列 core java 中的那些东西，要多
+列你在做 ssh 项目中涉及的那些东西。就写你最近写的那些程序中涉及的那些类。
+
+常用的类：BufferedReader BufferedWriter FileReader FileWirter String Integer
+java.util.Date，System，Class，List,HashMap
+
+常用的包：java.lang java.io java.util
+java.sql,javax.servlet,org.apache.strtuts.action,org.hibernate
+常用的接口：Remote List Map Document
+NodeList,Servlet,HttpServletRequest,HttpServletResponse,Transaction(Hibernate)、
+Session(Hibernate),HttpSession

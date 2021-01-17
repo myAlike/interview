@@ -1,0 +1,2 @@
+35、IBatis 和 MyBatis 在核心处理类分别叫什么？
+答：IBatis 里面的核心处理类交 SqlMapClient,MyBatis 里面的核心处理类叫做 SqlSession。

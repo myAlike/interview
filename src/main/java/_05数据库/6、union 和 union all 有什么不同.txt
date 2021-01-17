@@ -1,0 +1,55 @@
+6、union 和 union all 有什么不同?
+假设我们有一个表 Student，包括以下字段与数据：
+drop table student;
+create table student
+(
+id int primary key,
+name nvarchar2(50) not null,
+score number not null
+);
+insert into student values(1,'Aaron',78);
+insert into student values(2,'Bill',76);
+insert into student values(3,'Cindy',89);
+insert into student values(4,'Damon',90);
+insert into student values(5,'Ella',73);
+insert into student values(6,'Frado',61);
+insert into student values(7,'Gill',99);
+insert into student values(8,'Hellen',56);
+insert into student values(9,'Ivan',93);
+insert into student values(10,'Jay',90);
+commit;
+Union 和 Union All 的区别。
+select *
+from student
+where id < 4
+union
+select *
+from student
+where id > 2 and id < 6
+结果将是
+1 Aaron 78
+2 Bill 76
+3 Cindy 89
+4 Damon 90
+5 Ella 73
+如果换成 Union All 连接两个结果集，则返回结果是：
+1 Aaron 78
+2 Bill 76
+3 Cindy 89
+3 Cindy 89
+4 Damon 90
+5 Ella 73
+可以看到，Union 和 Union All 的区别之一在于对重复结果的处理。
+
+UNION 在进行表链接后会筛选掉重复的记录，所以在表链接后会对所产生的结果集进行排
+序运算，删除重复的记录再返回结果。实际大部分应用中是不会产生重复的记录，最常见的
+是过程表与历史表 UNION。如：
+select * from gc_dfys
+union
+select * from ls_jg_dfys
+ 这个 SQL 在运行时先取出两个表的结果，再用排序空间进行排序删除重复的记录，最
+后返回结果集，如果表数据量大的话可能会导致用磁盘进行排序。
+ 而 UNION ALL 只是简单的将两个结果合并后就返回。这样，如果返回的两个结果集中有
+重复的数据，那么返回的结果集就会包含重复的数据了。
+ 从效率上说，UNION ALL 要比 UNION 快很多，所以，如果可以确认合并的两个结果集
+中不包含重复的数据的话，那么就使用 UNION ALL，
