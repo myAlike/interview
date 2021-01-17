@@ -1,0 +1,13 @@
+19、编程计算 N!的程序，一个使用递归方法，一个不用递归方法
+递归 :
+long fuction(int n){
+ if (n==0) return 1;
+else
+ return n* fuction(n-1);
+}
+不递 :
+long s=1;
+for(int i=2;i<=n;i++)
+{
+ s*=i;
+}

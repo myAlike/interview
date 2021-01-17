@@ -1,0 +1,19 @@
+1.写一段把本地文件formfile拷贝到本地文件tofile的程序
+public class ChangeJtdToJava {
+	public static void main(String[] args) {
+		File dir = new File("f:/jtd");
+		// 得到d:/jtd 下的所有文件对象
+		File[] files = dir.listFiles();
+		for (File file : files) {
+			String fileName = file.getName(); // 得到文件名
+			int index = fileName.indexOf(".");// .的索引位置
+			String fileName2 = fileName.substring(0, index); // 不带后缀名的文件名
+			String houZui = fileName.substrinxg(index);
+			if (houZui.equals(".jtd")) {
+				// "f:/java/" + fileName2 + ".java"
+				// 要移到的地方
+				file.renameTo(new File("f:/java/" + fileName2 + ".java"));
+			}
+		}
+	}
+}

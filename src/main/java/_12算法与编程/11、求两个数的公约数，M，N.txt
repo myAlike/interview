@@ -1,0 +1,8 @@
+11、求两个数的公约数，M，N
+int divisor =1;
+for (int i = 2; i <= b; i++) {
+if(a%i==0 && b%i==0){
+divisor = i;
+}}
+System.out.println(a+"和"+b+"的最大公约数是:"+divisor);
+}

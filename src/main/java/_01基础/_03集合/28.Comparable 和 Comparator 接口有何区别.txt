@@ -1,0 +1,4 @@
+28.Comparable 和 Comparator 接口有何区别？
+
+Comparable 和 Comparator 接口被用来对对象集合或者数组进行排序。Comparable 接口被用 来提供对象的自然排序，我们可以使用它来提供基于单个逻辑的排序。
+Comparator 接口被用来提供不同的排序算法，我们可以选择需要使用的 Comparator 来对给 定的对象集合进行排序。

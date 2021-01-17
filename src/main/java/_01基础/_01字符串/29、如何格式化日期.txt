@@ -1,0 +1,9 @@
+29、如何格式化日期？
+Import java.text. SimpleDateFormat;
+SimpleDateFormat sdf=new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
+Date dat=new Date();
+//把日期转化为字符串
+String str=sdf.format(dat);
+System.out.println(str);
+//将字符串转化为日期
+Java.util.Date d1=sdf.parse(“yyyy-mm-dd”);

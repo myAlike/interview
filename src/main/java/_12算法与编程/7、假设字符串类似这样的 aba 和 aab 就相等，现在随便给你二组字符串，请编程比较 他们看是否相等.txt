@@ -1,0 +1,22 @@
+7、假设字符串类似这样的 aba 和 aab 就相等，现在随便给你二组字符串，请编程比较
+他们看是否相等
+BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+String s = null;
+try {
+    s = br.readLine();
+} catch (IOException e) {
+    e.printStackTrace();
+}
+StringTokenizer st = new StringTokenizer(s);
+String s1 = st.nextToken();
+String s2 = st.nextToken();
+byte[] sa1 = s1.getBytes();
+byte[] sb2 = s2.getBytes();
+Arrays.sort(sa1);
+Arrays.sort(sb2);
+String ss1 = new String(sa1);
+String ss2 = new String(sb2);
+if(ss1.equals(ss2))
+System.out.println("equal");
+else
+System.out.println("not equal");

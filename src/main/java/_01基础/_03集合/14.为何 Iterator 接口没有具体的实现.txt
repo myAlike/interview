@@ -1,0 +1,5 @@
+ 14.为何 Iterator 接口没有具体的实现？
+Iterator 接口定义了遍历集合的方法，但它的实现则是集合实现类的责任。每个能够返回用 于遍历的 Iterator 的集合类都有它自己的 Iterator 实现内部类。
+
+这就允许集合类去选择迭代器是 fail-fast 还是 fail-safe 的。比如，ArrayList 迭代器是 fail-fast
+的，而 CopyOnWriteArrayList 迭代器是 fail-safe 的。

@@ -44,3 +44,15 @@
  二.同步性:Hashtable 是线程安全的，也就是说是同步的，而 HashMap 是线程序不安全的，不是同步的
 
  三.值：只有 HashMap 可以让你将空值作为一个表的条目的 key 或 value
+
+
+
+ 20.ArrayList 和 Vector 有何异同点？
+ArrayList 和 Vector 在很多时候都很类似。
+（1）两者都是基于索引的，内部由一个数组支持。
+（2）两者维护插入的顺序，我们可以根据插入顺序来获取元素。
+（3）ArrayList 和 Vector 的迭代器实现都是 fail-fast 的。
+（4）ArrayList 和 Vector 两者允许 null 值，也可以使用索引值对元素进行随机访问。 以下是 ArrayList 和 Vector 的不同点。
+（1）Vector 是同步的，而 ArrayList 不是。然而，如果你寻求在迭代的时候对列表进行改变， 你应该使用 CopyOnWriteArrayList。
+（2）ArrayList 比 Vector 快，它因为有同步，不会过载。
+（3）ArrayList 更加通用，因为我们可以使用 Collections 工具类轻易地获取同步列表和只读 列表。

@@ -1,0 +1,2 @@
+9、Spring Boot 自动配置原理是什么？
+注解 @EnableAutoConfiguration, @Configuration, @ConditionalOnClass 就是自动 配置的核心，首先它得是一个配置文件，其次根据类路径下是否有这个类去自动配置。

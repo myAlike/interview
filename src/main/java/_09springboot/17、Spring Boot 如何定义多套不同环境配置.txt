@@ -1,0 +1,6 @@
+17、Spring Boot 如何定义多套不同环境配置？
+提供多套配置文件，如：
+applcation.properties
+application-dev.properties
+application-test.properties
+application-prod.properties

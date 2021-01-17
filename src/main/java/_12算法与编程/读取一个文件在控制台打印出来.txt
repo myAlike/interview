@@ -1,0 +1,17 @@
+73.编程题：读取一个文件在控制台打印出来
+File file = new File("E:\\课件\\二期课件\\Java\\T09 src\\JRadioButtonDemo.java");
+		long file_length= file.length();
+		try {
+			//输入流
+			FileInputStream input = new FileInputStream(file);
+			byte b_data [] = new byte[(int)file_length];
+			input.read(b_data);
+			System.out.println(new String(b_data));
+			input.close();
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}

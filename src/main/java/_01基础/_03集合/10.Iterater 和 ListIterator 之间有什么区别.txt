@@ -1,0 +1,5 @@
+10.Iterater 和 ListIterator 之间有什么区别？
+
+（1）我们可以使用 Iterator 来遍历 Set 和 List 集合，而 ListIterator 只能遍历 List。
+（2）Iterator 只可以向前遍历，而 LIstIterator 可以双向遍历。
+（3）ListIterator 从 Iterator 接口继承，然后添加了一些额外的功能，比如添加一个元素、替 换一个元素、获取前面或后面元素的索引位置。

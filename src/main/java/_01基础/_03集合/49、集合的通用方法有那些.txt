@@ -1,0 +1,12 @@
+49、集合的通用方法有那些?通用方法是什么?(操作)
+集合List 的遍历方法有：
+Iterator:
+Enumeration
+For
+Get
+set
+Collection的通用方法有：
+	Iterator()
+	Add()
+	Clear();
+	remove()

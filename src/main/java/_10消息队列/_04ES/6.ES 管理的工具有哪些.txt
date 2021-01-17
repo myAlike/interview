@@ -1,0 +1,4 @@
+6.ES 管理的工具有哪些？
+1）BigDesk Plugin (作者 Luká? Vl?ek)：监控 es 状态的插件,推荐！主要提供的是节点的实时 状态监控，包括 jvm 的情况，linux 的情况，elasticsearch 的情况
+
+2）Elasticsearch Head Plugin (作者 Ben Birch)：很方便对 es 进行各种操作的客户端。? 3）Kibana(ES 官方推荐)：Es 基于?RestAPI 调试、数据报表、数据搜索

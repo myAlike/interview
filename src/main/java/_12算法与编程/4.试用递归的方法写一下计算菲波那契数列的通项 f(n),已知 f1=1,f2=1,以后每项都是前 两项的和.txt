@@ -1,0 +1,7 @@
+4.试用递归的方法写一下计算菲波那契数列的通项 f(n),已知 f1=1,f2=1,以后每项都是前
+两项的和。
+..............
+public static long fibonacci(long m){
+if (m==0 || m==1) return m;
+else return fibonacci(m-1)+fibonacci(m-2);
+}

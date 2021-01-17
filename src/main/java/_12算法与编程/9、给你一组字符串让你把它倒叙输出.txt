@@ -1,0 +1,9 @@
+9、给你一组字符串让你把它倒叙输出
+public static String flashBack(String origin) {
+ String result = "";
+ for (int i = origin.length(); i > 0; i--) {
+ String tmp = origin.substring(i - 1, i);
+ result += tmp;
+ }
+ return result;
+}

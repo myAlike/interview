@@ -1,0 +1,6 @@
+12.fail-fast 与 fail-safe 有什么区别？
+
+Iterator 的 fail-fast 属性与当前的集合共同起作用，因此它不会受到集合中任何改动的影响。
+Java.util 包中的所有集合类都被设计为 fail-fast 的， 而 java.util.concurrent 中的集合类都为 fail-safe 的。
+
+Fall—fast 迭代器抛出 ConcurrentModificationException， fall—safe  迭代器从不抛出 ConcurrentModificationException。

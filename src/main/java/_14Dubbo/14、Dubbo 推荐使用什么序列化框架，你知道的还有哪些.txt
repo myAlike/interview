@@ -1,0 +1,3 @@
+14、Dubbo 推荐使用什么序列化框架，你知道的还有哪些？
+
+推荐使用 Hessian 序列化，还有 Duddo、FastJson、Java 自带序列化。

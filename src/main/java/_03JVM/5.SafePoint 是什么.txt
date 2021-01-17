@@ -1,0 +1,7 @@
+5.	SafePoint 是什么
+比如 GC 的时候必须要等到 Java 线程都进入到 safepoint 的时候 VMThread 才能开始
+执行 GC，
+1. 循环的末尾 (防止大循环的时候一直不进入 safepoint，而其他线程在等待它进入 safepoint)
+2.  方法返回前
+3.  调用方法的 call 之后
+4.  抛出异常的位置

@@ -1,0 +1,2 @@
+18、Spring Boot  可以兼容老  Spring 项目吗，如何做？
+可以兼容，使用 @ImportResource 注解导入老  Spring 项目配置文件。

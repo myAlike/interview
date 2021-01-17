@@ -1,0 +1,4 @@
+7、List 是线程安全的吗？如果要线程安全要怎么做？
+
+List    中的 Vector    才 是 线 程 安 全 的 ， 其 他 要 实 现 线 程 安 全 使 用 工 具 类
+Collections.synchronizedList(new ArrayList())方法。

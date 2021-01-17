@@ -1,0 +1,8 @@
+22.ArrayList 和 LinkedList 有何区别？
+ArrayList 和 LinkedList 两者都实现了 List 接口，但是它们之间有些不同。
+
+1）ArrayList 是由 Array 所支持的基于一个索引的数据结构，所以它提供对元素的随机访问， 复杂度为 O(1)，但 LinkedList 存储一系列的节点数据，每个节点都与前一个和下一个节点相 连接。所以，尽管有使用索引获取元素的方法，内部实现是从起始点开始遍历，遍历到索引 的节点然后返回元素，时间复杂度为 O(n)，比 ArrayList 要慢。
+
+2）与 ArrayList 相比，在 LinkedList 中插入、添加和删除一个元素会更快，因为在一个元素被 插入到中间的时候，不会涉及改变数组的大小，或更新索引。
+
+3）LinkedList 比 ArrayList 消耗更多的内存，因为 LinkedList 中的每个节点存储了前后节点的 引用。

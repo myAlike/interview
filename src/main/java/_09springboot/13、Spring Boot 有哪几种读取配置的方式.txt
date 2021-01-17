@@ -1,0 +1,3 @@
+13、Spring Boot 有哪几种读取配置的方式？
+Spring Boot  可以通过 @PropertySource,@Value,@Environment,
+@ConfigurationProperties 来绑定变量

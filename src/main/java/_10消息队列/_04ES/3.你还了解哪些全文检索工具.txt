@@ -1,0 +1,2 @@
+3.你还了解哪些全文检索工具？
+Lucene，Solr，HadoopContrib，Katta

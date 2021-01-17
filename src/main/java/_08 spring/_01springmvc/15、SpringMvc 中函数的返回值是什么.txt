@@ -1,0 +1,2 @@
+15、SpringMvc 中函数的返回值是什么？
+答：返回值可以有很多类型,有 String, ModelAndView,当一般用 String 比较好。

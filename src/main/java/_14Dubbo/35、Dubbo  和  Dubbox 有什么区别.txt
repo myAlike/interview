@@ -1,0 +1,3 @@
+35、Dubbo  和  Dubbox 有什么区别？
+
+Dubbox 是继 Dubbo 停止维护后，当当网基于 Dubbo 做的一个扩展项目，如加了服务  可  Restful 调用，更新了开源组件等。

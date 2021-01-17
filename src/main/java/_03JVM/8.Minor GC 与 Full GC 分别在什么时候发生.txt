@@ -1,0 +1,2 @@
+8.Minor GC 与 Full GC 分别在什么时候发生？
+新生代内存不够用时候发生 MGC 也叫 YGC，JVM 内存不够的时候发生 FGC

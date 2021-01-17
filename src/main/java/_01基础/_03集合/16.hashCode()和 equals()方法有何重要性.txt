@@ -1,0 +1,10 @@
+16.hashCode()和 equals()方法有何重要性？
+
+HashMap 使用 Key 对象的 hashCode()和 equals()方法去决定 key-value 对的索引。点击这里一 文搞懂它们之间的关系。
+
+当我们试着从 HashMap 中获取值的时候，这些方法也会被用到。如果这些方法没有被正确 地实现，在这种情况下，两个不同 Key 也许会产生相同的 hashCode()和 equals()输出，HashMap 将会认为它们是相同的，然后覆盖它们，而非把它们存储到不同的地方。
+
+同样的，所有不允许存储重复数据的集合类都使用 hashCode()和 equals()去查找重复，所以 正确实现它们非常重要。equals()和 hashCode()的实现应该遵循以下规则：
+
+1.如果 o1.equals(o2)，那么 o1.hashCode() == o2.hashCode()总是为 true 的。
+2.如果 o1.hashCode() == o2.hashCode()，并不意味着 o1.equals(o2)会为 true。

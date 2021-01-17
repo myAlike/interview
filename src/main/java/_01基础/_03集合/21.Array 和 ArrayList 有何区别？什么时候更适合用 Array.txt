@@ -1,0 +1,8 @@
+21.Array 和 ArrayList 有何区别？什么时候更适合用 Array？
+ Array 可以容纳基本类型和对象，而 ArrayList 只能容纳对象。
+Array 是指定大小的，而 ArrayList 大小是固定的。
+Array 没有提供 ArrayList 那么多功能，比如 addAll、removeAll 和 iterator 等。尽管 ArrayList
+明显是更好的选择，但也有些时候 Array 比较好用。
+（1）如果列表的大小已经指定，大部分情况下是存储和遍历它们。
+（2）对于遍历基本数据类型，尽管 Collections 使用自动装箱来减轻编码任务，在指定大小 的基本类型的列表上工作也会变得很慢。
+（3）如果你要使用多维数组，使用[][]比 List<List<>>更容易。

@@ -1,0 +1,5 @@
+37、Dubbo  能集成  Spring Boot 吗？
+
+可以的，项目地址如下。
+
+https://github.com/apache/incubator-dubbo-spring-boot-project

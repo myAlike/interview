@@ -1,0 +1,3 @@
+36、你还了解别的分布式框架吗？
+
+别的还有 Spring cloud、Facebook 的 Thrift、Twitter 的 Finagle    等。

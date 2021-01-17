@@ -1,0 +1,3 @@
+25.并发集合类是什么？
+
+Java1.5 并发包（java.util.concurrent）包含线程安全集合类，允许在迭代时修改集合。迭代 器 被 设 计 为 fail-fast 的 ， 会 抛 出 ConcurrentModificationException 。 一 部 分 类 为 ： CopyOnWriteArrayList、 ConcurrentHashMap、CopyOnWriteArraySet。

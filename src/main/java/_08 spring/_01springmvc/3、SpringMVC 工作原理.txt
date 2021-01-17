@@ -1,0 +1,4 @@
+3、SpringMVC 工作原理？
+ 答：
+1）客户端发送请求到 DispatcherServlet
+2）DispatcherServlet 查询 handlerMapping 找到处理请求的 Controller 3）Controller 调用业务逻辑后，返回 ModelAndView 4）DispatcherServlet 查询 ModelAndView，找到指定视图 5）视图将结果返回到客户端

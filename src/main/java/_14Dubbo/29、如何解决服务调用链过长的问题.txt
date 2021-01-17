@@ -1,0 +1,2 @@
+29、如何解决服务调用链过长的问题？
+Dubbo 可以使用 Pinpoint 和 Apache Skywalking(Incubator) 实现分布式服务追踪， 当然还有其他很多方案。

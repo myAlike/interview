@@ -1,0 +1,2 @@
+44.写几个java.lang.Object类中的方法名称
+equals();  toString();   getClass();  hashCode();  clone()    finalize()   notify()    wait()   notify()

@@ -1,0 +1,6 @@
+问题六：如何在Java线程池中提交线程？线程池最常用的提交任务的方法有两种：
+1..execute()：ExecutorService.execute方法接收一个Runable实例，它用来执行一个任务
+2..submit()：ExecutorService.submit()方法返回的是
+Future对象。可以用isDone()来查询Future是否已经完成，当任务完成时，
+它具有一个结果，可以调用get()来获取结果。也可以不用isDone()进行检查就直接调用get()，
+在这种情况下，get()将阻塞，直至结果准备就绪。

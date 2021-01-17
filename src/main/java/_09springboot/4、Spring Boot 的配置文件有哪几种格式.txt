@@ -1,0 +1,8 @@
+4、Spring Boot 的配置文件有哪几种格式？它们有什么区别？
+.properties 和 .yml，它们的区别主要是书写格式不同。 1).properties
+app.user.name = javastack
+2).yml
+app:
+   user:
+      name: javastack
+另外，.yml  格式不支持 @PropertySource 注解导入配置。

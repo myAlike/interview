@@ -1,0 +1,9 @@
+75.不同的数据库里面有相同的表实现同步更新（从多方面考虑）
+--用触发器可以实现两个数据表之间的数据同步更新  
+  For   Example:  
+  Create   Trigger   room_texes_change_id  
+  on     room  
+  for   update  
+  as   if   update(room.cstname)    
+          set   texes.cstname=room.cstname  
+          where   texes.id=room.id  。

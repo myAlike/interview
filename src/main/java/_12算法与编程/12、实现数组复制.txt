@@ -1,0 +1,11 @@
+12、实现数组复制
+我的理解：这是深复制，数组 a，b 不再有关联
+public void fun8(){
+int[] a = {1,2,3,4,56,7,8};
+int[] b = (int[])a.clone();
+Conica.print(a);
+Conica.print(b);
+b[0]=100;
+Conica.print(a);
+Conica.print(b);
+}

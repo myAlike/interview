@@ -1,0 +1,17 @@
+45.定义两个变量a和b，不使用第三个变量，使两个值交换
+public class testMain {
+    public void test(int a,int b){
+    	System.out.println("交换前a = "+a);
+    	System.out.println("交换前b = "+b);
+
+    	a=a+b;
+    	b=a-b;
+    	a=a-b;
+
+       System.out.println("交换后a = " +a);
+       System.out.print("交换后b = "+b);
+    }
+    public static void main(String args[]){
+    	new testMain().test(10,13);
+    }
+}

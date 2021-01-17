@@ -1,0 +1,5 @@
+25、Dubbo telnet 命令能做什么？
+
+dubbo 通过 telnet 命令来进行服务治理，具体使用看这篇文章《dubbo 服务调试管理实 用命令》。
+
+telnet localhost 8090

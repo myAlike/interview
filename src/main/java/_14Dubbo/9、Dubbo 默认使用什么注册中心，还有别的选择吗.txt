@@ -1,0 +1,3 @@
+9、Dubbo 默认使用什么注册中心，还有别的选择吗？
+
+推荐使用 Zookeeper 作为注册中心，还有 Redis、Multicast、Simple 注册中心，但不 推荐。

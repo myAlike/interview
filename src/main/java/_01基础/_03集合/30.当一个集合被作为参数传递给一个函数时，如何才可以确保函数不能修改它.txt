@@ -1,0 +1,4 @@
+30.当一个集合被作为参数传递给一个函数时，如何才可以确保函数不能修改它？
+
+在作为参数传递之前，我们可以使用 Collections.unmodifiableCollection(Collection c)方法创建 一个只读集合，
+这将确保改变集合的任何操作都会抛出 UnsupportedOperationException。

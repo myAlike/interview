@@ -1,0 +1,3 @@
+23.哪些集合类提供对元素的随机访问？
+
+ArrayList、HashMap、TreeMap 和 HashTable 类提供对元素的随机访问。

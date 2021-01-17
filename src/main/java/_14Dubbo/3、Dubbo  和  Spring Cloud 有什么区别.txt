@@ -1,0 +1,17 @@
+3、Dubbo  和  Spring Cloud 有什么区别？
+
+两个没关联，如果硬要说区别，有以下几点。
+1）通信方式不同
+Dubbo 使用的是 RPC 通信，而 Spring Cloud 使用的是 HTTP RESTFul 方式。
+2）组成部分不同
+组件	      Dubbo	                Spring Cloud
+服务注册中心	  Zookeeper	           Spring  Cloud  Netflix Eureka
+服务监控	      Dubbo-monitor	       Spring  Boot Admin
+断路器	      不完善	               Spring  Cloud  Netflix Hystrix
+服务网关	      无	               Spring  Cloud  Netflix Gateway
+分布式配置	  无	               Spring  Cloud Config
+服务跟踪	      无	               Spring  Cloud Sleuth
+消息总线	      无	               Spring  Cloud Bus
+数据流	      无	               Spring  Cloud Stream
+批量任务	      无	               Spring  Cloud Task
+...	...	...

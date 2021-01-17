@@ -1,0 +1,10 @@
+17.Map 接口提供了哪些不同的集合视图？
+Map 接口提供三个集合视图：
+
+1）Set keyset()：返回 map 中包含的所有 key 的一个 Set 视图。集合是受 map 支持的，map 的变化会在集合中反映出来，反之亦然。当一个迭代器正在遍历一个集合时，若 map 被修 改了（除迭代器自身的移除操作以外），迭代器的结果会变为未定义。集合支持通过 Iterator
+的 Remove、Set.remove、removeAll、retainAll 和 clear 操作进行元素移除，从 map 中移除对 应的映射。
+它不支持 add 和 addAll 操作。
+
+2）Collection values()：返回一个 map 中包含的所有 value 的一个 Collection 视图。这个 collection 受 map 支持的，map 的变化会在 collection 中反映出来，反之亦然。当一个迭代器正在遍历 一个 collection 时，若 map 被修改了（除迭代器自身的移除操作以外），迭代器的结果会变 为未定义。集合支持通过 Iterator 的 Remove、Set.remove、removeAll、retainAll 和 clear 操作 进行元素移除，从 map 中移除对应的映射。它不支持 add 和 addAll 操作。
+
+3）Set<Map.Entry<K,V>> entrySet()：返回一个 map 钟包含的所有映射的一个集合视图。这个 集合受 map 支持的，map 的变化会在 collection 中反映出来，反之亦然。当一个迭代器正在 遍历一个集合时，若 map 被修改了（除迭代器自身的移除操作，以及对迭代器返回的 entry 进行 setValue 外），迭代器的结果会变为未定义。集合支持通过 Iterator 的 Remove、Set.remove、 removeAll、retainAll 和 clear 操作进行元素移除，从 map 中移除对应的映射。它不支持 add 和 addAll 操作。

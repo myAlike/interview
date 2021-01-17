@@ -1,0 +1,5 @@
+6、Dubbo 内置了哪几种服务容器？
+Spring Container
+Jetty Container
+Log4j Container
+Dubbo 的服务容器只是一个简单的 Main 方法，并加载一个简单的 Spring 容器，用于 暴露服务。

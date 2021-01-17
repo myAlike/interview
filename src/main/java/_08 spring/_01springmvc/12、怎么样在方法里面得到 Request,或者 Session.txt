@@ -1,0 +1,2 @@
+12、怎么样在方法里面得到 Request,或者 Session？
+答：直接在方法的形参中声明 request,SpringMvc 就自动把 request 对象传入

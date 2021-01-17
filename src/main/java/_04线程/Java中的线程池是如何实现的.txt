@@ -1,0 +1,11 @@
+问题一：Java中的线程池是如何实现的？
+
+内部类Worker，它基于AQS实现，存放在线程池的HashSet<Worker>
+
+workers成员变量中；
+
+	而需要执行的任务则存放在成员变量	workQueue
+
+（BlockingQueue<Runnable>workQueue）中。
+
+这样，整个线程池实现的基本思想就是：从	workQueue中不断取出需要执行的任务，放在Workers中进行处理。

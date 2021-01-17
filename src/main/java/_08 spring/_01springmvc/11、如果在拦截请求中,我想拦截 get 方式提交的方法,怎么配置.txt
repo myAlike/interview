@@ -1,0 +1,2 @@
+11、如果在拦截请求中,我想拦截 get 方式提交的方法,怎么配置？
+答：可以在@RequestMapping 注解里面加上 method=RequestMethod.GET

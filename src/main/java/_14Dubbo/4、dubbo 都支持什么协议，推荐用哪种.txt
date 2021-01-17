@@ -1,0 +1,11 @@
+4、dubbo 都支持什么协议，推荐用哪种？
+
+	dubbo://（推荐）
+rmi://
+hessian://
+http://
+webservice://
+thrift://
+memcached://
+redis://
+rest://

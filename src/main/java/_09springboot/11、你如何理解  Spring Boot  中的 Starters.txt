@@ -1,0 +1,3 @@
+11、你如何理解  Spring Boot  中的 Starters？
+Starters 可以理解为启动器，它包含了一系列可以集成到应用里面的依赖包，你可以一站式 集成 Spring 及其他技术，而不需要到处找示例代码和依赖包。如你想使用 Spring JPA 访 问数据库，只要加入  spring-boot-starter-data-jpa 启动器依赖就能使用了。
+Starters 包含了许多项目中需要用到的依赖，它们能快速持续的运行，都是一系列得到支持 的管理传递性依赖。

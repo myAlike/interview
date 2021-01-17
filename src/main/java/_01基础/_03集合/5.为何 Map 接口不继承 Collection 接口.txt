@@ -1,0 +1,6 @@
+5.为何 Map 接口不继承 Collection 接口？
+
+尽管 Map 接口和它的实现也是集合框架的一部分，但 Map 不是集合，集合也不是 Map。因 此，Map 继承 Collection 毫无意义，反之亦然。
+
+如果 Map 继承 Collection 接口，那么元素去哪儿？Map 包含 key-value 对，它提供抽取 key
+或 value 列表集合的方法，但是它不适合“一组对象”规范。

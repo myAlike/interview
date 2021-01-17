@@ -1,0 +1,3 @@
+10、List 和 Array 之间如何互相转换？
+
+List>Array 使用 toArray 方法，Array>List 使用 Arrays.asList(array)方法，由于它是固定的，不固 定的可以使用 new ArrayList(Arrays.asList(array))。

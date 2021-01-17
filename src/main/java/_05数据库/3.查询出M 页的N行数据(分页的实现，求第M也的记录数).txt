@@ -1,0 +1,2 @@
+3.查询出M 页的N行数据(分页的实现，求第M也的记录数)
+Select top N  from  table  where id not in (select top  (M-1)*N  id  from table )

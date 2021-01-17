@@ -1,0 +1,3 @@
+9.几种常用的内存调试工具：jmap、jstack、jconsole、jhat
+jstack 可以看当前栈的情况，jmap 查看内存，jhat 进行 dump 堆的信息
+mat（eclipse 的也要了解一下）

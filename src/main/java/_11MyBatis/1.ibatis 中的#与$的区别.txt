@@ -1,0 +1,4 @@
+1.ibatis 中的#与$的区别
+在Ibatis中我们使用SqlMap进行Sql查询时需要引用参数，在参数引用中遇到的符号#和$之间的区分为，#可以进行与编译，进行类型匹配，而$不进行数据类型匹配，例如：
+select * from table where id = #id# ，其中如果字段id为字符型，那么#id#表示的就是'id'类型，如果id为整型，那么#id#就是id类型。
+select * from table where id = $id$ ，如果字段id为整型，Sql语句就不会出错，但是如果字段id为字符型，那么Sql语句应该写成 select * from table where id = '$id$'

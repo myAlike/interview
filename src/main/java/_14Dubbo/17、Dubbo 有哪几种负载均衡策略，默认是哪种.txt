@@ -1,0 +1,9 @@
+17、Dubbo 有哪几种负载均衡策略，默认是哪种？
+
+
+负载均衡策略	                 说明
+Random LoadBalance	         随机，按权重设置随机概率（默认）
+RoundRobin LoadBalance	     轮询，按公约后的权重设置轮询比率
+LeastActive LoadBalance	     最少活跃调用数，相同活跃数的随机
+ConsistentHash LoadBalance	 一致性 Hash，相同参数的请求总是发到同一提供者
+

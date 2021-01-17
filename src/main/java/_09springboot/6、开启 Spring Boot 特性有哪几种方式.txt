@@ -1,0 +1,2 @@
+6、开启 Spring Boot 特性有哪几种方式？
+ 1）继承 spring-boot-starter-parent 项目 2）导入 spring-boot-dependencies 项目依赖

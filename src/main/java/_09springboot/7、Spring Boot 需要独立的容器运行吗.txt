@@ -1,0 +1,2 @@
+7、Spring Boot 需要独立的容器运行吗？
+可以不需要，内置了 Tomcat/ Jetty 等容器。

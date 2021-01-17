@@ -1,3 +1,8 @@
 14、为什么 wait()方法和 notify()/notifyAll()方法要在同步块中被调用
 
 这是 JDK 强制的，wait()方法和 notify()/notifyAll()方法在调用前都必须先 获得对象的锁
+
+
+主要是因为 Java API 强制要求这样做，如果你不这么做，你的代码会抛出
+IllegalMonitorStateException 异常。还有一个原因是为了避免 wait 和 notify 之间产生竞
+态条件。
