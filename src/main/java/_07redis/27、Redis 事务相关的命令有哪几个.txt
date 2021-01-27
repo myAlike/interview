@@ -1,3 +1,0 @@
-27、Redis 事务相关的命令有哪几个？
-
-MULTI、EXEC、DISCARD、WATCH

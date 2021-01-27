@@ -1,0 +1,4 @@
+7、Redis如何实现延时队列
+
+使用sortedset，使用时间戳做score, 消息内容作为key,调用zadd来生产消息，
+消费者使用zrangbyscore获取n秒之前的数据做轮询处理。
